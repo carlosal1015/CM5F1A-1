@@ -1,0 +1,58 @@
+%! Integrantes:
+%! Leon Alonzo Terrones Caccha (Matemática)
+%! Carlos Alonso Aznarán Laos (Matemática)
+%! Universidad Nacional de Ingeniería
+%! Facultad de Ciencias
+%! Lima, Perú
+%! Uso:
+%! $ sudo pacman -Syu texlive texlive-langspanish zathura # dependencias, visor
+%! $ arara main
+%! $ zathura main.pdf
+%! Ver https://wiki.archlinux.org/title/TeX_Live
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux','bbl','bcf','blg','log','nav','out',
+% arara: --> 'pdf','run.xml','snm','synctex.gz','toc']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: biber
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> synctex: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux','bbl','bcf','blg','log','nav','out',
+% arara: --> 'run.xml','snm','synctex.gz','toc']
+% arara: --> }
+\input{preamble}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+	\frametitle{
+		\color{DarkBlue}
+		Lista de N$^{\circ}$ de pregunta / estudiante
+	}
+	\tableofcontents
+\end{frame}
+
+\input{p6}
+\input{p9}
+\input{p12}
+\input{p13}
+\input{references}
+
+\end{document}
