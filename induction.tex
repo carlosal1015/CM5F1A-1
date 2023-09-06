@@ -1,0 +1,55 @@
+\begin{frame}
+	\begin{theorem}[El Principio de Inducción Matemática]
+		Sea $F$ un \alert{cuerpo ordenado}.
+		Suponga que $\forall n\in\mathbb{N}_{F}$, $p\left(n\right)$ es
+		una proposición acerca de $n$.
+		Si
+
+		\begin{multicols}{2}
+			\begin{enumerate}[(1)]
+				\item\label{hyp:1}
+
+				$p\left(1\right)$ es verdadero, y
+
+				\item\label{hyp:2}
+
+				$\forall k\in\mathbb{N}_{F}$,
+				$p\left(k\right)\implies p\left(k+1\right)$,
+			\end{enumerate}
+		\end{multicols}
+
+		entonces $\forall n\in\mathbb{N}_{F}$, $p\left(n\right)$ es
+		verdadero.
+	\end{theorem}
+
+	\begin{proof}
+		Suponga que $p\left(n\right)$ es como se describe en la
+		hipótesis.
+		Sea
+		\begin{math}
+			A=
+			\left\{
+			x\in\mathbb{N}_{F}:
+			p\left(x\right)\text{ es verdadero}
+			\right\}
+		\end{math}.
+		Entonces,
+		\begin{enumerate}[(i)]
+			\item
+
+			      $1\in A$, por~\eqref{hyp:1}.
+
+			\item
+
+			      Suponga que $x\in A$. Entonces, $x\in\mathbb{N}_{F}$ y
+			      $p\left(x\right)$ es verdadero.
+			      Así, por~\eqref{hyp:2}, $p\left(x+1\right)$ es verdadero.
+			      Esto es, $x+1\in A$.
+			      Por lo tanto, $x\in A\implies x+1\in A$.
+			      Finalmente, $A$ es conjunto inductivo y
+			      $\mathbb{N}_{F}\subset A$.
+			      Esto es, $\forall n\in\mathbb{N}_{F}$, $p\left(n\right)$
+			      es verdadero.
+		\end{enumerate}
+	\end{proof}
+\end{frame}

@@ -1,0 +1,288 @@
+\begin{frame}
+	\begin{theorem}
+		Para $0\leq k\leq n$ se cumple
+		\begin{math}
+			\omega^{\prime}_{n+1}
+			\left(x_{k}\right)=
+			\prod\limits_{\substack{j=0\\j\neq k}}^{n}
+			\left(
+			x_{k}-x_{j}
+			\right).
+		\end{math}
+	\end{theorem}
+
+	\begin{proof}
+		Si
+		\begin{math}
+			\omega_{\alert{n+1}}
+			\left(x\right)
+			\overset{\text{def}}{=}
+			\prod\limits_{j=0}^{\alert{n+1}-1}
+			\left(
+			x-x_{j}
+			\right)=
+			\prod\limits_{j=0}^{n}
+			\left(
+			x-x_{j}
+			\right)
+		\end{math}, entonces
+		\begin{math}
+			\ln
+			\left(
+			\omega_{n+1}
+			\left(x\right)
+			\right)=
+			\ln
+			\left(
+			\prod\limits_{j=0}^{n}
+			\left(
+				x-x_{j}
+				\right)
+			\right)=
+			\sum\limits_{j=0}^{n}
+			\ln
+			\left(
+			x-x_{j}
+			\right)
+		\end{math}.
+		Derivando,
+
+		\begin{align*}
+			{\left(
+				\ln
+				\left(
+					\omega_{n+1}
+					\left(x\right)
+					\right)
+			\right)}^{\prime} & =
+			{\left(
+			\sum\limits_{j=0}^{n}
+			\ln
+			\left(
+				x-x_{j}
+				\right)
+			\right)}^{\prime}=
+			\sum\limits_{j=0}^{n}
+			{\left(
+			\ln
+			\left(
+				x-x_{j}
+				\right)
+			\right)}^{\prime}.
+			\\
+			\dfrac{
+				\omega^{\prime}_{n+1}\left(x\right)
+			}{
+				\alert{
+					\omega_{n+1}\left(x\right)
+				}
+			}                 & =
+			\sum\limits_{j=0}^{n}
+			\dfrac{{\left(x-x_{j}\right)}^{\prime}}{x-x_{j}}=
+			\sum\limits_{j=0}^{n}
+			\dfrac{1}{x-x_{j}}.
+			\\
+			\Aboxed{
+			w^{\prime}_{n+1}
+			\left(x\right)    & =
+			\alert{
+				\omega_{n+1}
+				\left(x\right)
+			}
+			\sum\limits_{j=0}^{n}
+			\dfrac{1}{x-x_{j}}.
+			}
+			\\
+			w^{\prime}_{n+1}
+			\left(x_{k}\right)
+			                  & =
+			\alert{
+				\prod\limits_{j=0}^{n}
+				\left(
+				x_{k}-x_{j}
+				\right)
+			}
+			\sum\limits_{i=0}^{n}
+			\dfrac{1}{x_{k}-x_{i}}=
+			\prod\limits_{j=0}^{n}
+			\sum\limits_{i=0}^{n}
+			\dfrac{
+			x_{k}-x_{j}
+			}{
+			x_{k}-x_{i}
+			}
+			=
+			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+			\left(
+			x_{k}-x_{j}
+			\right).
+		\end{align*}
+		% Si $x_{k}$ un punto nodal cualesquiera, donde $0\leq k\leq n$,
+		% entonces
+		% \begin{math}
+		% 	w^{\prime}_{n+1}
+		% 	\left(x_{k}\right)=
+		% 	\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+		% 	\left(
+		% 	x_{k}-x_{j}
+		% 	\right)
+		% \end{math}.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{theorem}
+		Si $\Pi_{n}f\left(x\right)$ es el polinomio de Lagrange, entonces
+		\begin{math}
+			\Pi_{n}f\left(x\right)=
+			\sum\limits_{k=0}^{n}
+			\dfrac{
+				\omega_{n+1}\left(x\right)
+			}{
+				\left(x-x_{k}\right)
+				\omega^{\prime}_{n+1}\left(x_{k}\right)
+			}
+			y_{k}
+		\end{math}.
+	\end{theorem}
+
+	\begin{proof}
+		\begin{align*}
+			\sum\limits_{k=0}^{n}
+			\dfrac{
+				\omega_{n+1}\left(x\right)
+			}{
+				\left(x-x_{k}\right)
+				\alert{
+					\omega^{\prime}_{n+1}\left(x_{k}\right)
+				}
+			}
+			y_{k} & =
+			\sum\limits_{k=0}^{n}
+			y_{k}
+			\dfrac{
+				\prod\limits_{j=0}^{n}
+				\left(
+				x-x_{j}
+				\right)
+			}{
+				\left(x-x_{k}\right)
+				\alert{
+			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+					\left(
+					x_{k}-x_{j}
+					\right)
+				}
+			}
+			\\
+			      & =
+			\sum\limits_{k=0}^{n}
+			y_{k}
+			\dfrac{
+			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+				\left(
+				x-x_{j}
+				\right)
+			}{
+			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+				\left(
+				x_{k}-x_{j}
+				\right)
+			}
+			\\
+			      & =
+			\sum\limits_{k=0}^{n}
+			y_{k}
+			\alert{
+			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+			\dfrac{
+			x-x_{j}
+			}{
+			x_{k}-x_{j}
+			}
+			}                           \\
+			      & =
+			\sum\limits_{k=0}^{n}
+			y_{k}
+			\alert{
+				\ell_{k}\left(x\right)
+			}
+			=
+			\Pi_{n}
+			f\left(x\right).
+		\end{align*}
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{theorem}[Teorema de las diferencias divididas de orden superior]
+		Para $0\leq k\leq n$ se cumple
+		\begin{equation*}
+			a_{k}=
+			f\left[x_{0},\ldots,x_{k}\right]=
+			\dfrac{
+			f\left[x_{1},\ldots,x_{k}\right]-
+			f\left[x_{0},\ldots,x_{k-1}\right]
+			}{x_{k}-x_{0}}.
+			% \begin{cases}
+			% 	0 & \text{si} \\
+			% 	1 & \text{no}
+			% \end{cases}
+		\end{equation*}
+		La evaluación de $a_{n}$ requiere $n^{2}$ restas y
+		$\dfrac{n^{2}}{2}$ divisiones.
+	\end{theorem}
+
+	% \begin{proof}
+	% 	.
+	% \end{proof}
+
+	\begin{theorem}[Representación explícita de $a_{n}$]
+		¿Encontrar alguna identidad entre $\omega_{k}\left(x\right)$ y
+		$\ell_{k}\left(x\right)$?
+		\begin{equation*}
+			a_{n}=
+			\sum\limits_{k=0}^{n}
+			\dfrac{
+				f\left(x_{k}\right)
+			}{
+				w^{\prime}_{n+1}
+				\left(x_{k}\right)
+			}.
+		\end{equation*}
+	\end{theorem}
+
+	\begin{proof}
+		\begin{equation*}
+			\sum\limits_{k=0}^{n}
+			\dfrac{
+				f\left(x_{k}\right)
+			}{
+				\alert{
+					w^{\prime}_{n+1}
+					\left(x_{k}\right)
+				}
+			}=
+			\sum\limits_{k=0}^{n}
+			\dfrac{
+				f\left(x_{k}\right)
+			}{
+				\alert{
+					\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+					\left(
+					x_{k}-x_{j}
+					\right)
+				}
+			}
+		\end{equation*}
+	\end{proof}
+
+	% \begin{theorem}[Interpolación de Lagrange baricéntrica] % Fórmula baricéntrica
+	% 	\begin{equation*}
+	% 		\lambda_{k}\coloneqq
+	% 		\prod\limits_{\substack{j=0               \\j\neq k}}^{n}
+	% 		\dfrac{1}{x_{k}-x_{j}}=
+	% 		\dfrac{1}{\prod\limits_{\substack{j=0               \\j\neq k}}^{n}x_{k}-x_{j}}
+	% 	\end{equation*}
+	% \end{theorem}
+\end{frame}

@@ -1,5 +1,7 @@
 \section{Pregunta N$^{\circ}$11\qquad Andre Gilmer Santos Felix}
 
+\input{induction}
+
 \begin{frame}
 	\begin{enumerate}\setcounter{enumi}{10}
 		\item
@@ -8,12 +10,36 @@
 		      tiene
 		      \begin{math}
 			      \det\left(A_{n}\right)=
-			      \prod\limits_{i=0}^{j}
+			      \prod\limits_{\substack{i=0\\i\neq j}}^{n}
 			      \left(t_{i}-t_{j}\right)
 		      \end{math}.
 	\end{enumerate}
 
 	\begin{solution}
-		.
+
+		Definimos la proposición
+		\begin{math}
+			p\left(n\right)\coloneqq
+			\det\left(A_{n}\right)=
+			\prod\limits_{i=0}^{j}
+			\left(t_{i}-t_{j}\right)
+		\end{math}.
+
+		Por el \alert{Principio de Inducción Matemática}, vemos que
+		el caso base $p\left(1\right)$ se cumple
+		\begin{equation*}
+			\prod\limits_{\substack{i=0\\i\neq j}}^{1}
+			\left(t_{i}-t_{j}\right)
+			=\det\left(A_{1}\right)
+		\end{equation*}
+
+		Para la hipótesis inductiva, asumamos que $p\left(k\right)$ se
+		cumple hasta un $k\in\mathbb{N}$ fijo.
+		\begin{align*}
+			a_{k+1} & \geq a_{k}
+		\end{align*}
+
+		Luego, $p\left(k+1\right)$ se cumple.
+		Por lo tanto, $p\left(n\right)$ se cumple para todo $n$ natural.
 	\end{solution}
 \end{frame}

@@ -1,0 +1,228 @@
+\begin{frame}
+    \begin{theorem}[Binomio de Newton]
+        Si $a,b\in\mathbb{C}$, entonces
+        \begin{math}
+            \forall n\in\mathbb{N}\cup\left\{0\right\}:
+        \end{math}
+
+        \begin{equation}\label{eq:binomial}
+            \left(a+b\right)^{n}=
+            \sum\limits_{j=0}^{n}
+            \dbinom{n}{j}
+            a^{j}
+            b^{n-j}.
+        \end{equation}
+    \end{theorem}
+
+    Derivando~\eqref{eq:binomial} con respecto de $a$, tenemos
+    \begin{align}
+        \diffp{
+            \alert{
+                \left(a+b\right)^{n}
+            }
+        }{a}                    & =
+        \diffp{
+            \alert{
+                \sum\limits_{j=0}^{n}
+                \dbinom{n}{j}
+                a^{j}
+                b^{n-j}
+            }
+        }{a}.  \notag               \\
+        n\left(a+b\right)^{n-1} & =
+        \sum\limits_{j=0}^{n}
+        \dbinom{n}{j}
+        b^{n-j}
+        \diffp{
+            \alert{
+                a^{j}
+            }
+        }{a}.   \notag              \\
+        \alert{a}
+        n\left(a+b\right)^{n-1}
+                                & =
+        \alert{a}
+        \sum\limits_{j=0}^{n}
+        \dbinom{n}{j}
+        \alert{ja^{j-1}}
+        b^{n-j}.      \notag        \\
+        \label{eq:binomial_I}
+        \Aboxed{
+            a\left(a+b\right)^{n-1}
+                                & =
+            \sum\limits_{j=0}^{n}
+            \dfrac{j}{n}
+            \dbinom{n}{j}
+            a^{j}
+            b^{n-j}.
+        }
+    \end{align}
+\end{frame}
+
+\begin{frame}
+    Derivando~\eqref{eq:binomial} dos veces con respecto de $a$,
+    tenemos
+    \begin{align}
+        \diffp[2]{
+            \alert{
+                \left(a+b\right)^{n}
+            }
+        }{a}                   & =
+        \diffp[2]{
+            \alert{
+                \sum\limits_{j=0}^{n}
+                \dbinom{n}{j}
+                a^{j}
+                b^{n-j}
+            }
+        }{a}.   \notag             \\
+        \diffp{
+            \alert{
+                n\left(a+b\right)^{n-1}
+            }
+        }{a}                   & =
+        \diffp{
+            \alert{
+                \sum\limits_{j=0}^{n}
+                \dbinom{n}{j}
+                ja^{j-1}
+                b^{n-j}
+            }
+        }{a}.         \notag       \\
+        n\left(n-1\right)
+        \left(a+b\right)^{n-2} & =
+        \sum\limits_{j=0}^{n}
+        \dbinom{n}{j}
+        b^{n-j}
+        j
+        \diffp{
+            \alert{
+                a^{j-1}
+            }
+        }{a}.               \notag \\
+        \alert{
+            \dfrac{a^{2}}{n^{2}}
+        }
+        n\left(n-1\right)
+        \left(a+b\right)^{n-2} & =
+        \alert{
+            \dfrac{a^{2}}{n^{2}}
+        }
+        \sum\limits_{j=0}^{n}
+        \dbinom{n}{j}
+        b^{n-j}
+        j
+        \alert{
+            \left(j-1\right)
+            a^{j-2}
+        }.                \notag   \\
+        \dfrac{n-1}{n}
+        a^{2}
+        \left(a+b\right)^{n-2}
+                               & =
+        \sum\limits_{j=0}^{n}
+        \dfrac{j\left(j-1\right)}{n^{2}}
+        \dbinom{n}{j}
+        a^{j}
+        b^{n-j}.          \notag   \\
+        \label{eq:binomial_II}
+        \Aboxed{
+            \left(1-\dfrac{1}{n}\right)
+            a^{2}
+            \left(a+b\right)^{n-2}
+                               & =
+            \sum\limits_{j=0}^{n}
+            \left(
+            \dfrac{j^{2}}{n^{2}}-
+            \dfrac{j}{n^{2}}
+            \right)
+            \dbinom{n}{j}
+            a^{j}
+            b^{n-j}.
+        }
+    \end{align}
+\end{frame}
+
+\begin{frame}
+    Definimos
+    \begin{math}
+        B_{n,j}\left(x\right)\coloneqq
+        \dbinom{n}{j}
+        x^{j}
+            {\left(1-x\right)}^{n-j}
+    \end{math}
+    para cualquier
+    \begin{math}
+        \forall j\in\left\{0,\dotsc,n\right\}
+    \end{math}.
+    Si sustituimos $a=\alert{x}$ y $b=\alert{1-x}$
+    en~\eqref{eq:binomial},~\eqref{eq:binomial_I}
+    y~\eqref{eq:binomial_II}
+    \begin{align}
+        \left(\alert{x}+\alert{1-x}\right)^{n} & =
+        \sum\limits_{j=0}^{n}
+        \dbinom{n}{j}
+        \alert{x}^{j}
+        {\left(\alert{1-x}\right)}^{n-j}. \notag   \\
+        \Aboxed{
+        1                                      & =
+            \sum\limits_{j=0}^{n}
+            B_{n,j}\left(x\right).
+        }                                          \\
+        \alert{x}\left(\alert{x}+\alert{1-x}\right)^{n-1}
+                                               & =
+        \sum\limits_{j=0}^{n}
+        \dfrac{j}{n}
+        \dbinom{n}{j}
+        \alert{x}^{j}
+        {\left(\alert{1-x}\right)}^{n-j}. \notag   \\
+        \Aboxed{
+            x
+                                               & =
+            \sum\limits_{j=0}^{n}
+            \dfrac{j}{n}
+            B_{n,j}\left(x\right).
+        }                                          \\
+        \left(1-\dfrac{1}{n}\right)
+        \alert{x}^{2}
+        \left(\alert{x}+\alert{1-x}\right)^{n-2}
+                                               & =
+        \sum\limits_{j=0}^{n}
+        \left(
+        \dfrac{j^{2}}{n^{2}}-
+        \dfrac{j}{n^{2}}
+        \right)
+        \dbinom{n}{j}
+        \alert{x}^{j}
+        {\left(\alert{1-x}\right)}^{n-j}.
+        \notag                                     \\
+        \left(1-\dfrac{1}{n}\right)
+        x^{2}
+                                               & =
+        \sum\limits_{j=0}^{n}
+        \left(
+        \dfrac{j^{2}}{n^{2}}-
+        \dfrac{j}{n^{2}}
+        \right)
+        B_{n,j}\left(x\right)=
+        \sum\limits_{j=0}^{n}
+        \dfrac{j^{2}}{n^{2}}
+        B_{n,j}\left(x\right)-
+        \frac{1}{n}
+        \alert{
+            \sum\limits_{j=0}^{n}
+            \dfrac{j}{n}
+            B_{n,j}\left(x\right)
+        }.
+        \notag                                     \\
+        \Aboxed{
+            \left(1-\dfrac{1}{n}\right)
+            x^{2}+
+            \dfrac{\alert{x}}{n}
+                                               & =
+            \sum\limits_{j=0}^{n}
+            \dfrac{j^{2}}{n^{2}}
+            B_{n,j}\left(x\right).
+        }
+    \end{align}
+\end{frame}
