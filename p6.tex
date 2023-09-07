@@ -1,4 +1,4 @@
-\section{Pregunta N$^{\circ}$6\qquad Leon Alonzo Terrones Caccha}
+\section{Pregunta N$^{\circ}$6\qquad León Alonzo Terrones Caccha}
 
 \input{interpolation}
 \input{interpolation_theorems}
@@ -31,12 +31,24 @@
 	\end{enumerate}
 
 	\begin{solution}
-
-		$1t^{2}-0.75t-1.25$.
-
+        \begin{align*}
+            L_{0}(t)&=0.5 x(x-1)\\
+            L_{1}(t)&=-1 (x-1)(x+1)\\
+            L_{2}(t)&=0.5 x(x+1)
+        \end{align*}
+        El polinomio de interpolación expresado en la forma de Lagrange es:
+        \begin{align*}
+            P(t)&=(\textcolor{blue}{y_0})L_{0}(t)+(\textcolor{blue}{y_1})L_{1}(t)+(\textcolor{blue}{y_2})L_{2}(t)\\
+            &=(0.5)L_{0}(t)+(1)L_{1}(t)+(-1)L_{2}(t)
+        \end{align*}
+        El polinomio de interpolación es:
+		$$P(t)=-1.25t^{2}-0.75t+1$$
+  \end{solution}
+\end{frame}
+\begin{frame}
 		\begin{figure}[ht!]
 			\centering
-			\includegraphics[width=.6\paperwidth]{p6}
+			\includegraphics[width=.6\paperwidth]{p6-2}
 		\end{figure}
-	\end{solution}
+	
 \end{frame}
