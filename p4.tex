@@ -16,7 +16,8 @@
 		      y determine un $n_{0}$ tal que
 		      \begin{math}
 			      \left|
-			      B_{n_{0}}\left(x\right)
+			      B_{n_{0}}\left(x\right)-
+			      x^{2}
 			      \right|\leq
 			      10^{-6}
 		      \end{math}
@@ -38,20 +39,74 @@
 
 		\begin{figure}[ht!]
 			\centering
-			\includegraphics[width=.5\paperwidth]{b_n}
+			\includegraphics[width=.55\paperwidth]{p4}
 		\end{figure}
 	\end{solution}
 \end{frame}
 
 \begin{frame}
 	\begin{solution}
-		\begin{figure}[ht!]
-			\centering
-			\includegraphics[width=.9\paperwidth]{4}
-		\end{figure}
-		% \begin{align*}
-		% 	0 & \leq x\leq 1     \\
-		% 	0 & \leq x^{2}\leq 1 \\
-		% \end{align*}
+		Sea $n\in\mathbb{N}$ y $x\in\left[0,1\right]$.
+
+		\begin{alignat*}{2}
+			0             & \leq x                                                           &  & \leq 1.            \\
+			-\dfrac{1}{2} & \leq x-\dfrac{1}{2}                                              &  & \leq \dfrac{1}{2}. \\
+			0             & \leq {\left(x-\dfrac{1}{2}\right)}^{2}                           &  & \leq \dfrac{1}{4}. \\
+			-\dfrac{1}{4} & \leq {\left(x-\dfrac{1}{2}\right)}^{2}-\dfrac{1}{4}              &  & \leq 0.            \\
+			0             & \leq \left|{\left(x-\dfrac{1}{2}\right)}^{2}-\dfrac{1}{4}\right| &  & \leq \dfrac{1}{4}.
+		\end{alignat*}
+
+		Por lo tanto,
+		\begin{math}
+			\exists n_{0}\in\mathbb{N}
+		\end{math}
+		tal que
+		\begin{math}
+			\forall x\in\left[0,1\right]:
+			\left|B_{n_{0}}\left(x\right)-x^{2}\right|\leq
+			10^{-6}
+		\end{math}.
+
+		\begin{align*}
+			\left|
+			\alert{
+				B_{n_{0}}\left(x\right)
+			}
+			-x^{2}
+			\right| & =
+			\left|
+			\alert{
+			\left(\dfrac{n-1}{n}\right)x^{2}+
+			\dfrac{1}{n}x
+			}
+			-x^{2}
+			\right|=
+			\left|
+			x^{2}\left(1-\dfrac{1}{n}-1\right)+\dfrac{x}{n}
+			\right|=
+			\left|
+			-\dfrac{x^{2}}{n}+\dfrac{x}{n}
+			\right|
+			=\left|
+			\dfrac{1}{n}
+			\left(x-x^{2}\right)
+			\right|     \\
+			        & =
+			\dfrac{1}{n}
+			\left|
+			x^{2}-x
+			\right|=
+			\dfrac{1}{n}
+			\left|
+			{\left(x-\dfrac{1}{2}\right)}^{2}-
+			\dfrac{1}{4}
+			\right|\leq
+			10^{-6}.
+		\end{align*}
+
+		Entonces,
+		\begin{math}
+			\dfrac{1}{4n_{0}}=10^{-6}\iff n_{0}=250000
+		\end{math}.
 	\end{solution}
 \end{frame}
