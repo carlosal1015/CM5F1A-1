@@ -6,12 +6,99 @@
 
               Encuentre una expresión general para
               \begin{math}
-                  L_{j}^{\left(1\right)}\left(t\right)=
-                  \diff{L_{j}\left(t\right)}{t}
+                  \ell_{k}^{\left(1\right)}\left(t\right)=
+                  \diff{\ell_{k}\left(t\right)}{t}
               \end{math}.
     \end{enumerate}
 
     \begin{solution}
-        Vea el teorema de la página 10.
+        Si
+        \begin{math}
+            \ell_{k}
+            \left(t\right)
+            \overset{\text{def}}{=}
+            \prod\limits_{\substack{j=0\\j\neq k}}^{n}
+            \dfrac{t-t_{j}}{t_{k}-t_{j}}
+        \end{math}, entonces
+        \begin{math}
+            \alert{\ln}
+            \left(
+            \ell_{k}
+            \left(t\right)
+            \right)=
+            \alert{\ln}
+            \left(
+            \prod\limits_{\substack{j=0\\j\neq k}}^{n}
+            \dfrac{t-t_{j}}{t_{k}-t_{j}}
+            \right)=
+            \sum\limits_{\substack{j=0\\j\neq k}}^{n}
+            \ln
+            \left(
+            \dfrac{t-t_{j}}{t_{k}-t_{j}}
+            \right)=
+            \sum\limits_{\substack{j=0\\j\neq k}}^{n}
+            \ln
+            \left(
+            t-t_{j}
+            \right)-
+            \sum\limits_{\substack{j=0\\j\neq k}}^{n}
+            \left(
+            t_{k}-t_{j}
+            \right)
+        \end{math}.
+        Derivando,
+
+        \begin{align*}
+            {\left(
+                \ln
+                \left(
+                    \ell_{k}
+                    \left(t\right)
+                    \right)
+            \right)}^{\prime} & =
+            {\left(
+            \sum\limits_{\substack{j=0  \\j\neq k}}^{n}
+            \ln
+            \left(
+            t-t_{j}
+            \right)
+            -\sum\limits_{\substack{j=0 \\j\neq k}}^{n}
+            \left(
+            t_{k}-t_{j}
+            \right)
+            \right)}^{\prime}=
+            \sum\limits_{\substack{j=0  \\j\neq k}}^{n}
+            {\left(
+                \ln
+                \left(
+                t-t_{j}
+                \right)
+                \right)}^{\prime}.
+            \\
+            \dfrac{
+                \ell^{\prime}_{k}
+                \left(t\right)
+            }{
+                \alert{
+                    \ell_{k}
+                    \left(t\right)
+                }
+            }                 & =
+            \sum\limits_{\substack{j=0  \\j\neq k}}^{n}
+            \dfrac{{\left(t-t_{j}\right)}^{\prime}}{t-t_{j}}=
+            \sum\limits_{\substack{j=0  \\j\neq k}}^{n}
+            \dfrac{1}{t-t_{j}}.
+            \\
+            \Aboxed{
+            \ell^{\prime}_{k}
+            \left(t\right)    & =
+            \alert{
+                \ell_{k}
+                \left(t\right)
+            }
+            \sum\limits_{\substack{j=0  \\j\neq k}}^{n}
+            \dfrac{1}{t-t_{j}}.
+            }
+        \end{align*}
     \end{solution}
 \end{frame}

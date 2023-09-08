@@ -147,107 +147,107 @@
 \end{frame}
 
 % https://people.maths.ox.ac.uk/trefethen/barycentric.pdf
-\begin{frame}
-	\begin{definition}[Interpolación baricéntrica de Lagrange]
-		Con el fin de realizar menos operaciones en la interpolación
-		polinomial de Lagrange, multiplicamos por
-		\begin{math}
-			\alert{
-				\dfrac{1}{\omega_{n+1}\left(x\right)}
-			}
-		\end{math}
-		y resulta
-		\begin{align*}
-			\alert{
-				\dfrac{1}{\omega_{n+1}\left(x\right)}
-			}
-			\Pi_{n}f\left(x\right) & =
-			\alert{
-				\dfrac{1}{\omega_{n+1}\left(x\right)}
-			}
-			\sum\limits_{k=0}^{n}
-			y_{k}
-			\alert{
-				\ell_{k}\left(x\right)
-			}=
-			\dfrac{1}{\omega_{n+1}\left(x\right)}
-			\sum\limits_{k=0}^{n}
-			y_{k}
-			\alert{
-			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
-			\dfrac{x-x_{j}}{x_{k}-x_{j}}
-			}.
-			\\
-			                       & =
-			\sum\limits_{k=0}^{n}
-			\left\{
-			\dfrac{y_{k}}{
-				\alert{
-			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
-					\left(
-					x_{k}-x_{j}
-					\right)
-				}
-			}
-			\dfrac{
-				\alert{
-			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
-					\left(
-					x-x_{j}
-					\right)
-				}
-			}{\omega_{n+1}\left(x\right)}
-			\right\}=
-			\sum\limits_{k=0}^{n}
-			\left\{
-			\dfrac{y_{k}}{
-			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
-				\left(
-				x_{k}-x_{j}
-				\right)
-			}
-			\dfrac{1}{x-x_{k}}
-			\right\}.
-			\\
-			\Pi_{n}f\left(x\right)
-			                       & =
-			\sum\limits_{k=0}^{n}
-			y_{k}
-			\widetilde{\ell}_{k}\left(x\right)\in\mathbb{P}_{n},
-		\end{align*}
-		donde
-		\begin{columns}
-			\begin{column}{.45\paperwidth}
-				\begin{itemize}
-					\item
+% \begin{frame}
+% 	\begin{definition}[Interpolación baricéntrica de Lagrange]
+% 		Con el fin de realizar menos operaciones en la interpolación
+% 		polinomial de Lagrange, multiplicamos por
+% 		\begin{math}
+% 			\alert{
+% 				\dfrac{1}{\omega_{n+1}\left(x\right)}
+% 			}
+% 		\end{math}
+% 		y resulta
+% 		\begin{align*}
+% 			\alert{
+% 				\dfrac{1}{\omega_{n+1}\left(x\right)}
+% 			}
+% 			\Pi_{n}f\left(x\right) & =
+% 			\alert{
+% 				\dfrac{1}{\omega_{n+1}\left(x\right)}
+% 			}
+% 			\sum\limits_{k=0}^{n}
+% 			y_{k}
+% 			\alert{
+% 				\ell_{k}\left(x\right)
+% 			}=
+% 			\dfrac{1}{\omega_{n+1}\left(x\right)}
+% 			\sum\limits_{k=0}^{n}
+% 			y_{k}
+% 			\alert{
+% 			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+% 			\dfrac{x-x_{j}}{x_{k}-x_{j}}
+% 			}.
+% 			\\
+% 			                       & =
+% 			\sum\limits_{k=0}^{n}
+% 			\left\{
+% 			\dfrac{y_{k}}{
+% 				\alert{
+% 			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+% 					\left(
+% 					x_{k}-x_{j}
+% 					\right)
+% 				}
+% 			}
+% 			\dfrac{
+% 				\alert{
+% 			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+% 					\left(
+% 					x-x_{j}
+% 					\right)
+% 				}
+% 			}{\omega_{n+1}\left(x\right)}
+% 			\right\}=
+% 			\sum\limits_{k=0}^{n}
+% 			\left\{
+% 			\dfrac{y_{k}}{
+% 			\prod\limits_{\substack{j=0 \\j\neq k}}^{n}
+% 				\left(
+% 				x_{k}-x_{j}
+% 				\right)
+% 			}
+% 			\dfrac{1}{x-x_{k}}
+% 			\right\}.
+% 			\\
+% 			\Pi_{n}f\left(x\right)
+% 			                       & =
+% 			\sum\limits_{k=0}^{n}
+% 			y_{k}
+% 			\widetilde{\ell}_{k}\left(x\right)\in\mathbb{P}_{n},
+% 		\end{align*}
+% 		donde
+% 		\begin{columns}
+% 			\begin{column}{.45\paperwidth}
+% 				\begin{itemize}
+% 					\item
 
-					      \begin{math}
-						      \widetilde{\ell}_{k}
-						      \left(x\right)=
-						      \omega_{n+1}
-						      \left(x\right)
-						      \dfrac{b_{k}}{x-x_{k}}
-					      \end{math}, y
-				\end{itemize}
-			\end{column}
-			\begin{column}{.45\paperwidth}
-				\begin{itemize}
-					\item
+% 					      \begin{math}
+% 						      \widetilde{\ell}_{k}
+% 						      \left(x\right)=
+% 						      \omega_{n+1}
+% 						      \left(x\right)
+% 						      \dfrac{b_{k}}{x-x_{k}}
+% 					      \end{math}, y
+% 				\end{itemize}
+% 			\end{column}
+% 			\begin{column}{.45\paperwidth}
+% 				\begin{itemize}
+% 					\item
 
-					      \begin{math}
-						      b_{j}=
-						      \dfrac{1}{
-							      \prod\limits_{\substack{j=0\\j\neq k}}^{n}
-							      \left(
-							      x_{k}-x_{j}
-							      \right)
-						      }
-					      \end{math}
-					      son los \emph{pesos baricéntricos}.
-				\end{itemize}
-			\end{column}
-		\end{columns}
-		% La evaluación de $\Pi_{n}f\left(x\right)$ requiere
-		% $O\left(n\right)$.
-	\end{definition}
-\end{frame}
+% 					      \begin{math}
+% 						      b_{j}=
+% 						      \dfrac{1}{
+% 							      \prod\limits_{\substack{j=0\\j\neq k}}^{n}
+% 							      \left(
+% 							      x_{k}-x_{j}
+% 							      \right)
+% 						      }
+% 					      \end{math}
+% 					      son los \emph{pesos baricéntricos}.
+% 				\end{itemize}
+% 			\end{column}
+% 		\end{columns}
+% 		% La evaluación de $\Pi_{n}f\left(x\right)$ requiere
+% 		% $O\left(n\right)$.
+% 	\end{definition}
+% \end{frame}

@@ -1,7 +1,7 @@
 \section{Pregunta N$^{\circ}$6\qquad León Alonzo Terrones Caccha}
 
 \input{interpolation}
-\input{interpolation_theorems}
+% \input{interpolation_theorems}
 
 \begin{frame}
 	\begin{enumerate}\setcounter{enumi}{5}
@@ -10,9 +10,9 @@
 		      Encuentre el interpolante de Lagrange
 		      \begin{math}
 			      p_{2}\left(t\right)=
-			      \sum\limits_{j=0}^{2}
-			      x_{j}
-			      L_{j}\left(t\right)
+			      \sum\limits_{k=0}^{2}
+			      x_{k}
+			      \ell_{k}\left(t\right)
 		      \end{math}
 		      para el conjunto de datos
 		      \begin{math}
@@ -22,33 +22,73 @@
 			      \left((1,-1\right)
 			      \right\}
 		      \end{math}.
-		      Encuentre $p_{2,j}$ en
+		      Encuentre $p_{2,k}$ en
 		      \begin{math}
 			      p_{2}\left(t\right)=
-			      \sum\limits_{j=0}^{2}
-			      p_{2,j}t^{j}
+			      \sum\limits_{k=0}^{2}
+			      p_{2,k}t^{k}
 		      \end{math}.
 	\end{enumerate}
 
 	\begin{solution}
-        \begin{align*}
-            L_{0}(t)&=0.5 x(x-1)\\
-            L_{1}(t)&=-1 (x-1)(x+1)\\
-            L_{2}(t)&=0.5 x(x+1)
-        \end{align*}
-        El polinomio de interpolación expresado en la forma de Lagrange es:
-        \begin{align*}
-            P(t)&=(\textcolor{blue}{y_0})L_{0}(t)+(\textcolor{blue}{y_1})L_{1}(t)+(\textcolor{blue}{y_2})L_{2}(t)\\
-            &=(0.5)L_{0}(t)+(1)L_{1}(t)+(-1)L_{2}(t)
-        \end{align*}
-        El polinomio de interpolación es:
-		$$P(t)=-1.25t^{2}-0.75t+1$$
-  \end{solution}
+		\begin{align*}
+			\ell_{0}\left(t\right) & =
+			\prod\limits_{\substack{j=0        \\j\neq 0}}^{n}
+			\dfrac{t-t_{j}}{t_{0}-t_{j}}=
+			\dfrac{\left(t-t_{1}\right)\left(t-t_{2}\right)}{\left(t_{0}-t_{1}\right)\left(t_{0}-t_{2}\right)}=
+			\dfrac{\left(t-0\right)\left(t-1\right)}{\left(\left(-1\right)-0\right)\left(\left(-1\right)-1\right)}=
+			\dfrac{1}{2}t\left(t-1\right).     \\
+			\ell_{1}\left(t\right) & =
+			\prod\limits_{\substack{j=0        \\j\neq 1}}^{n}
+			\dfrac{t-t_{j}}{t_{1}-t_{j}}=
+			\dfrac{\left(t-t_{0}\right)\left(t-t_{2}\right)}{\left(t_{1}-t_{0}\right)\left(t_{1}-t_{2}\right)}=
+			\dfrac{\left(t-\left(-1\right)\right)\left(t-1\right)}{\left(0-\left(-1\right)\right)\left(0-1\right)}=
+			-\left(t+1\right)\left(t-1\right). \\
+			\ell_{2}\left(t\right) & =
+			\prod\limits_{\substack{j=0        \\j\neq 2}}^{n}
+			\dfrac{t-t_{j}}{t_{2}-t_{j}}=
+			\dfrac{\left(t-t_{0}\right)\left(t-t_{1}\right)}{\left(t_{2}-t_{0}\right)\left(t_{2}-t_{1}\right)}=
+			\dfrac{\left(t-\left(-1\right)\right)\left(t-0\right)}{\left(1-\left(-1\right)\right)\left(1-0\right)}=
+			\dfrac{1}{2}\left(t+1\right)t.
+		\end{align*}
+
+		Entonces,
+		\begin{align*}
+			p_{2}\left(t\right) & =
+			\sum\limits_{k=0}^{2}
+			x_{k}
+			\ell_{k}\left(t\right)=
+			\alert{x_{0}}\ell_{0}\left(t\right)+
+			\alert{x_{1}}\ell_{1}\left(t\right)+
+			\alert{x_{2}}\ell_{2}\left(t\right)=
+			\dfrac{1}{2}\ell_{0}\left(t\right)+
+			\ell_{1}\left(t\right)-
+			\ell_{2}\left(t\right).               \\
+			                    & =
+			\dfrac{1}{2}\alert{\dfrac{1}{2}t\left(t-1\right)}
+			\alert{-\left(t+1\right)\left(t-1\right)}-
+			\alert{\dfrac{1}{2}\left(t+1\right)t}. \\
+			                    & =
+			-1.25t^{2}-0.75t+1.
+		\end{align*}
+	\end{solution}
 \end{frame}
+
 \begin{frame}
+	\begin{solution}
 		\begin{figure}[ht!]
 			\centering
-			\includegraphics[width=.6\paperwidth]{p6-2}
+			\includegraphics[width=.8\paperwidth]{p6_lagrange}
 		\end{figure}
-	
+	\end{solution}
+\end{frame}
+
+
+\begin{frame}
+	\begin{solution}
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=.8\paperwidth]{p6}
+		\end{figure}
+	\end{solution}
 \end{frame}

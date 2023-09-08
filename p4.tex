@@ -25,47 +25,21 @@
 	\end{enumerate}
 
 	\begin{solution}
-		Sean $x\in\left[0,1\right]$ y $n\in\mathbb{N}$, definimos
+		Definimos
 		\begin{math}
 			B_{n}\left(x\right)\coloneqq
 			\sum\limits_{j=0}^{n}
 			\dfrac{j^{2}}{n^{2}}
 			B_{n,j}\left(x\right)
 		\end{math}
-		para cualquier
-		\begin{math}
-			\forall n\in\mathbb{N}
-		\end{math}.
-
-		\begin{figure}[ht!]
-			\centering
-			\includegraphics[width=.6\paperwidth]{p4}
-		\end{figure}
-	\end{solution}
-\end{frame}
-
-\begin{frame}
-	\begin{solution}
-		Sea $n\in\mathbb{N}$ y $x\in\left[0,1\right]$.
-
+		para cualquier $x\in\left[0,1\right]$ y $n\in\mathbb{N}$.
+		Además,
 		\begin{alignat*}{2}
-			0             & \leq x                                                           &  & \leq 1.            \\
 			-\dfrac{1}{2} & \leq x-\dfrac{1}{2}                                              &  & \leq \dfrac{1}{2}. \\
 			0             & \leq {\left(x-\dfrac{1}{2}\right)}^{2}                           &  & \leq \dfrac{1}{4}. \\
 			-\dfrac{1}{4} & \leq {\left(x-\dfrac{1}{2}\right)}^{2}-\dfrac{1}{4}              &  & \leq 0.            \\
 			0             & \leq \left|{\left(x-\dfrac{1}{2}\right)}^{2}-\dfrac{1}{4}\right| &  & \leq \dfrac{1}{4}.
 		\end{alignat*}
-
-		Por lo tanto,
-		\begin{math}
-			\exists n_{0}\in\mathbb{N}
-		\end{math}
-		tal que
-		\begin{math}
-			\forall x\in\left[0,1\right]:
-			\left|B_{n_{0}}\left(x\right)-x^{2}\right|\leq
-			10^{-6}
-		\end{math}.
 
 		\begin{align*}
 			\left|
@@ -76,37 +50,55 @@
 			\right| & =
 			\left|
 			\alert{
-			\left(\dfrac{n-1}{n}\right)x^{2}+
-			\dfrac{1}{n}x
+			\left(\dfrac{n_{0}-1}{n_{0}}\right)x^{2}+
+			\dfrac{1}{n_{0}}x
 			}
 			-x^{2}
 			\right|=
 			\left|
-			x^{2}\left(1-\dfrac{1}{n}-1\right)+\dfrac{x}{n}
+			x^{2}\left(1-\dfrac{1}{n_{0}}-1\right)+\dfrac{x}{n_{0}}
 			\right|=
 			\left|
-			-\dfrac{x^{2}}{n}+\dfrac{x}{n}
+			-\dfrac{x^{2}}{n_{0}}+\dfrac{x}{n_{0}}
 			\right|
 			=\left|
-			\dfrac{1}{n}
+			\dfrac{1}{n_{0}}
 			\left(x-x^{2}\right)
 			\right|     \\
 			        & =
-			\dfrac{1}{n}
+			\dfrac{1}{n_{0}}
 			\left|
 			x^{2}-x
 			\right|=
-			\dfrac{1}{n}
+			\dfrac{1}{n_{0}}
 			\left|
 			{\left(x-\dfrac{1}{2}\right)}^{2}-
 			\dfrac{1}{4}
 			\right|\leq
 			10^{-6}.
 		\end{align*}
-
 		Entonces,
 		\begin{math}
 			\dfrac{1}{4n_{0}}=10^{-6}\iff n_{0}=250000
 		\end{math}.
+		Por lo tanto,
+		\begin{math}
+			\exists n_{0}\in\mathbb{N}
+		\end{math}
+		tal que
+		\begin{math}
+			\forall x\in\left[0,1\right]:
+			\left|B_{n_{0}}\left(x\right)-x^{2}\right|\leq
+			10^{-6}
+		\end{math}.
+	\end{solution}
+\end{frame}
+
+\begin{frame}
+	\begin{solution}
+		\begin{figure}[ht!]
+			\centering
+			\includegraphics[width=.72\paperwidth]{p4}
+		\end{figure}
 	\end{solution}
 \end{frame}
