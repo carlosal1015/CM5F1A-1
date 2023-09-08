@@ -3,24 +3,62 @@
 \begin{frame}
     \begin{enumerate}\setcounter{enumi}{2}
         \item
-              Demostrar que las funciones de Bernstein para $n=3$ son linealmente independiente.
-
-              \[\sum_{k=0}^{3}=c_{k}B_{k,3}(t)\]
-
+              Demostrar que las funciones base de Bernstein para
+              $n=3$ son linealmente independientes.
+              Por consiguiente, son una base del espacio de
+              polinomios de grado menor o igual que $3$.
+              ¿Por qué basta con probar la independencia lineal?
+              ¿Cómo se podría generalizar este argumento?
     \end{enumerate}
 
     \begin{solution}
-        Sea la combinación lineal con $c_k\in\mathbb{R}:$
-        \[\sum_{k=0}^{3}=c_{k}B_{k,3}(t)\]
-        Por demostrar que $c_k=0$, $i\in[0.3]$
-        \begin{align*}
-            \sum_{k=0}^{3}=c_{k}B_{k,3}(t) & =\sum_{k=0}^{3}c_k\binom{3}{k}t^k(1-t)^{3-k}                                        \\
-                                           & =\sum_{k=0}^{3}{c_k\binom{3}{k}t^k\sum_{j=0}^{n-k}\binom{3-k}{j}{(-t)^{3-k-j}}}     \\
-                                           & =\sum_{j=0}^{3}{t^{n-j}\sum_{k=0}^{3-j}{c_k\binom{3}{k}\binom{3-k}{j}(-1)^{3-k-j}}}
-        \end{align*}
+        Sean $c_{0},c_{1},c_{2}\in\mathbb{R}$.
+        Por demostrar que
+        \begin{math}
+            \sum\limits_{k=0}^{3}
+            c_{k}
+            B_{k,3}\left(t\right)=
+            0\implies
+            c_{0}=0,
+            c_{1}=0,
+            c_{2}=0
+        \end{math}.
 
-        El cual es un polinomio de grado 3. Sean sus coeficientes $a_i$.
-        Para $j=0$, el coeficiente de $t^3$ es:
+        \begin{align*}
+            \sum_{k=0}^{3}
+            c_{k}
+            B_{k,3}\left(t\right)
+             & =
+            \sum_{k=0}^{3}
+            c_{k}
+            \binom{3}{k}
+            t^{k}
+            \alert{
+                {\left(1-t\right)}^{3-k}
+            }
+            =
+            \sum_{k=0}^{3}
+            c_{k}\binom{3}{k}t^k
+            \alert{
+                \sum_{j=0}^{3-k}
+                \binom{3-k}{j}
+                1^{j}
+                    {\left(-t\right)}^{3-k-j}
+            }.
+            \\
+             & =
+            \sum_{j=0}^{3}
+            t^{n-j}
+            \sum_{k=0}^{3-j}
+            c_{k}
+            \binom{3}{k}
+            \binom{3-k}{j}
+            \left(-1\right)^{3-k-j}
+        \end{align*}
+        es un polinomio de grado $3$ con coeficientes $a_{0}$,
+        $a_{1}$ y $a_{2}$.
+        Para $j=0$, el coeficiente de $t^{3}$ es
+
         \begin{align*}
             \sum_{k=0}^{3}{c_k\binom{3}{k}\binom{3-k}{0}(-1)^{3-k}} & =3(-3c_0+3c_1-3c_2+3c_3)
             a_{3}                                                   & =\sum_{k=0}^{3}{c_k\binom{3}{k}\binom{3-k}{0}(-1)^{3-k}} \\
@@ -30,14 +68,23 @@
             a_{1}                                                   & =\sum_{k=0}^{2}{c_k\binom{3}{k}\binom{3-k}{1}(-1)^{2-k}} \\
                                                                     & =-3c_0+3c_1                                              \\
             a_{0}                                                   & =\sum_{k=0}^{2}{c_k\binom{3}{k}\binom{3-k}{1}(-1)^{2-k}} \\
-                                                                    & =c_0                                                     \\
-        \end{align*}
+                                                                    & =c_0
         \end{align*}
     \end{solution}
 \end{frame}
 
 \begin{frame}
     \begin{solution}
-        Al final se obtiene un sistema lineal en funcion del vector $c=(c_0,c_1,c_2,c_3)$. Debido a que $\{1,t,t^2,t^3\}$ es una base para los polinomios de grado 3 se tiene que $a_k=0$. Finalmente aplicando sustitución progresiva se obtiene $c_k=0$, $k\in[0.3]$.
+        El cual es un polinomio de grado $3$.
+        Entonces sean $a_{j}$ los coeficientes de $t^{j}$.
+        Se tiene:
+        \begin{align*}
+            a_3 & =\sum_{k=0}^{3}{c_k\binom{3}{k}\binom{3-k}{0}(-1)^{3-k}}=-c_0+3c_1-3c_2+c_3 \\
+            a_2 & =\sum_{k=0}^{2}{c_k\binom{3}{k}\binom{3-k}{1}(-1)^{2-k}}=3c_0+-6c_1+3c_2    \\
+            a_1 & =\sum_{k=0}^{1}{c_k\binom{3}{k}\binom{3-k}{2}(-1)^{1-k}}=-3c_0+3c_1         \\
+            a_0 & =\sum_{k=0}^{0}{c_k\binom{3}{k}\binom{3-k}{3}(-1)^{-k}}=c_0                 \\
+        \end{align*}
+
+        Al final se obtiene un sistema lineal en función del vector $c=(c_0,c_1,c_2,c_3)$. Debido a que $\{1,t,t^2,t^3\}$ es una base para los polinomios de grado 3 se tiene que $a_k=0$. Finalmente aplicando sustitución progresiva se obtiene $c_k=0$, $k\in[0.3]$.
     \end{solution}
 \end{frame}
