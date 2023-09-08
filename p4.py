@@ -38,7 +38,7 @@ def plot_b_n(numbers: list):
     x = np.linspace(start=0, stop=1)
 
     for number in numbers:
-        plt.plot(x, b_n(x=x, n=number), lw=0.75,
+        plt.plot(x, b_n(x=x, n=number), lw=0.45,
                  label=f"$B_{{{number}}}(x)$")
 
     plt.grid()
@@ -49,14 +49,15 @@ def plot_b_n(numbers: list):
 
 def check_n0(n0: int, TOLERANCE: float = 1e-6, SAMPLE_SIZE: int = 5000):
     x = np.linspace(start=0, stop=1, num=SAMPLE_SIZE)
-    y = np.abs(b_n(x=x, n=250000 - 1) - x**2)
+    y = np.abs(b_n(x=x, n=n0) - x**2)
 
     return np.all(y <= TOLERANCE)
 
 
 if __name__ == "__main__":
-    print(f"{lfs_partial_a}")
-    print(f"{lfs_partial_a_2}")
-    print(f"{rhs}")
-    plot_b_n(numbers=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    check_n0(n0=250000)
+    # print(f"{lfs_partial_a}")
+    # print(f"{lfs_partial_a_2}")
+    # print(f"{rhs}")
+    plot_b_n(numbers=[1, 2, 10, 50, 250000])
+    valor = check_n0(n0=250000 + 1)
+    print(valor)
