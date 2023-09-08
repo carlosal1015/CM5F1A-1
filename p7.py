@@ -56,8 +56,8 @@ print("Polinomio de Lagrange: ")
 print(px)
 
 # Gráfica
-plt.title("Interpolación Lagrange")
-plt.plot(xi, fi, "o", label="Puntos")
-plt.plot(xi_p, fi_p, label="Polinomio")
+plt.title("Interpolación de Lagrange")
+plt.scatter(xi, fi, s=10, label="Puntos de control")
+plt.plot(xi_p, fi_p, 'orange', lw=0.45, label="Polinomio")
 plt.legend()
 plt.savefig("p7.pdf", transparent=True, bbox_inches="tight")

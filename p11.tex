@@ -18,6 +18,20 @@
 	\end{enumerate}
 
 	\begin{solution}
+		Sea $n\in\mathbb{N}$ y $A_{n}$ la matriz asociada al sistema
+		que halla los coeficientes del polinomio de interpolación
+		para $n+1$ puntos.
+
+		\begin{equation*}
+			A^{t}_{n}\coloneqq
+			\begin{bmatrix}
+				1         & 1         & \cdots & 1             & 1           \\
+				t_0       & t_1       & \cdots & t_{n-1}       & t_{n}       \\
+				\vdots    & \vdots    & \ddots & \vdots        & \vdots      \\
+				t_0^{n-1} & t_1^{n-1} & \cdots & t_{n-1}^{n-1} & t_{n}^{n-1} \\
+				t_0^{n}   & t_1^{n}   & \cdots & t_{n-1}^{n}   & t_{n}^{n}
+			\end{bmatrix}.
+		\end{equation*}
 
 		Sea
 		\begin{math}
@@ -49,20 +63,19 @@
 			\item
 
 			      Supongamos que $p\left(n\right)$ es cierto hasta un
-			      $n_{0}\in\mathbb{N}$.
+			      $n_{0}\in\mathbb{N}$. Es decir,
 
-			      Entonces la matriz
 			      \begin{equation*}
-				      A^{t}_{n+1}=
-				      \begin{pmatrix}
-					      1         & 1         & \cdots & 1           & 1             \\
-					      a_0       & a_1       & \cdots & a_{n}       & a_{n+1}       \\
-					      \vdots    & \vdots    & \ddots & \vdots      & \vdots        \\
-					      a_0^{n}   & a_1^{n}   & \cdots & a_{n}^{n}   & a_{n+1}^{n}   \\
-					      a_0^{n+1} & a_1^{n+1} & \cdots & a_{n}^{n+1} & a_{n+1}^{n+1}
-				      \end{pmatrix}
+				      \begin{vmatrix}
+					      1           & 1           & \cdots & 1           & 1             \\
+					      t_{0}       & t_{1}       & \cdots & t_{n}       & t_{n+1}       \\
+					      \vdots      & \vdots      & \ddots & \vdots      & \vdots        \\
+					      t_{0}^{n}   & t_{1}^{n}   & \cdots & t_{n}^{n}   & t_{n+1}^{n}   \\
+					      t_{0}^{n+1} & t_{1}^{n+1} & \cdots & t_{n}^{n+1} & t_{n+1}^{n+1}
+				      \end{vmatrix}=
+				      \prod\limits_{\mathclap{0\leq i< j\leq n_{0}}}
+				      \left(t_{j}-t_{i}\right).
 			      \end{equation*}
-
 		\end{itemize}
 	\end{solution}
 \end{frame}
@@ -76,24 +89,4 @@
 	$$=\prod_{j=1}^{n+1}(a_j-a_0) \det\begin{pmatrix} 1& 1&\cdots&1\\a_2&a_3&\cdots&a_{n+1}\\ \vdots&\vdots&\ddots&\vdots\\a_2^{n-1}&a_3^{n-1}&\cdots&a_{n+1}^{n-1}\end{pmatrix}$$
 	Luego, $p\left(n+1\right)$ se cumple.
 	Por lo tanto, $p\left(n\right)$ se cumple para todo $n$ natural.
-
-\end{frame}
-
-\begin{frame}
-	\begin{solution}
-		Sea $n\in\mathbb{N}$ y $A_{n}$ la matriz asociada al sistema
-		que halla los coeficientes del polinomio de interpolación
-		para $n+1$ puntos.
-
-		\begin{equation*}
-			A^{t}_{n}=
-			\begin{pmatrix}
-				1         & 1         & \cdots & 1             & 1           \\
-				a_0       & a_1       & \cdots & a_{n-1}       & a_{n}       \\
-				\vdots    & \vdots    & \ddots & \vdots        & \vdots      \\
-				a_0^{n-1} & a_1^{n-1} & \cdots & a_{n-1}^{n-1} & a_{n}^{n-1} \\
-				a_0^{n}   & a_1^{n}   & \cdots & a_{n-1}^{n}   & a_{n}^{n}
-			\end{pmatrix}
-		\end{equation*}
-	\end{solution}
 \end{frame}
