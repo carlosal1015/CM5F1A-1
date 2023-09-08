@@ -14,7 +14,10 @@ numbers = [5, 8, 10]
 def plot_lagrange(numbers):
     for number in numbers:
         x = np.linspace(start=-5, stop=5, num=number)
+        delta = 0.5
+        t = np.linspace(start=-5 - delta, stop=5 + delta, num=300)
         y = 1 / (1 + x**2)
+        y_new = 1 / (1 + t**2)
         poly = lagrange(x, y)
         print(f"P_{number}:\n{poly}")
         p = Polynomial(poly.coef[::-1]).coef
@@ -23,7 +26,7 @@ def plot_lagrange(numbers):
         plt.plot(x_new, Polynomial(poly.coef[::-1])(x_new), 'orange',
                  lw=0.75, label=f"$P_{{{number}}}(t)$")
         plt.scatter(x, y, s=10, label='Puntos de control')
-        plt.plot(x, y, lw=0.7, label=r"$f(t)=\frac{1}{1+t^2}$")
+        plt.plot(t, y_new, lw=0.7, label=r"$f(t)=\frac{1}{1+t^2}$")
         # plt.plot(x, y)
         plt.grid()
         plt.legend()
