@@ -31,34 +31,31 @@
 	\begin{solution}
 		\begin{align*}
 			\ell_{0}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 0}}^{n}
+			\prod\limits_{\substack{j=0            \\j\neq 0}}^{n}
 			\dfrac{t-t_{j}}{t_{0}-t_{j}}=
 			\dfrac{\left(t-t_{1}\right)\left(t-t_{2}\right)}{\left(t_{0}-t_{1}\right)\left(t_{0}-t_{2}\right)}=
 			\dfrac{\left(t-0\right)\left(t-1\right)}{\left(\left(-1\right)-0\right)\left(\left(-1\right)-1\right)}=
-			\dfrac{1}{2}t\left(t-1\right).     \\
+			\dfrac{1}{2}t\left(t-1\right).         \\
 			\ell_{1}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 1}}^{n}
+			\prod\limits_{\substack{j=0            \\j\neq 1}}^{n}
 			\dfrac{t-t_{j}}{t_{1}-t_{j}}=
 			\dfrac{\left(t-t_{0}\right)\left(t-t_{2}\right)}{\left(t_{1}-t_{0}\right)\left(t_{1}-t_{2}\right)}=
 			\dfrac{\left(t-\left(-1\right)\right)\left(t-1\right)}{\left(0-\left(-1\right)\right)\left(0-1\right)}=
-			-\left(t+1\right)\left(t-1\right). \\
+			-\left(t+1\right)\left(t-1\right).     \\
 			\ell_{2}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 2}}^{n}
+			\prod\limits_{\substack{j=0            \\j\neq 2}}^{n}
 			\dfrac{t-t_{j}}{t_{2}-t_{j}}=
 			\dfrac{\left(t-t_{0}\right)\left(t-t_{1}\right)}{\left(t_{2}-t_{0}\right)\left(t_{2}-t_{1}\right)}=
 			\dfrac{\left(t-\left(-1\right)\right)\left(t-0\right)}{\left(1-\left(-1\right)\right)\left(1-0\right)}=
-			\dfrac{1}{2}\left(t+1\right)t.     \\
+			\dfrac{1}{2}\left(t+1\right)t.         \\
 			\ell_{3}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 3}}^{n}
+			\prod\limits_{\substack{j=0            \\j\neq 3}}^{n}
 			\dfrac{t-t_{j}}{t_{0}-t_{j}}=
 			\dfrac{\left(t-t_{1}\right)\left(t-t_{2}\right)}{\left(t_{0}-t_{1}\right)\left(t_{0}-t_{2}\right)}=
 			\dfrac{\left(t-0\right)\left(t-1\right)}{\left(\left(-1\right)-0\right)\left(\left(-1\right)-1\right)}=
 			\dfrac{1}{2}t\left(t-1\right).
-		\end{align*}
-
-		Entonces,
-		\begin{align*}
-			p_{2}\left(t\right) & =
+			\shortintertext{Entonces,}
+			p_{2}\left(t\right)    & =
 			\sum\limits_{k=0}^{2}
 			x_{k}
 			\ell_{k}\left(t\right)=
@@ -68,11 +65,10 @@
 			\dfrac{1}{2}\ell_{0}\left(t\right)+
 			\ell_{1}\left(t\right)-
 			\ell_{2}\left(t\right).                \\
-			                    & =
+			                       & =
 			\dfrac{1}{2}\alert{\dfrac{1}{2}t\left(t-1\right)}
 			\alert{-\left(t+1\right)\left(t-1\right)}-
-			\alert{\dfrac{1}{2}\left(t+1\right)t}. \\
-			                    & =
+			\alert{\dfrac{1}{2}\left(t+1\right)t}=
 			-1.25t^{2}-0.75t+1.
 		\end{align*}
 	\end{solution}
