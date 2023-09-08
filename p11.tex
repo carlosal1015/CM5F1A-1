@@ -1,4 +1,4 @@
-\section{Pregunta N$^{\circ}$11\qquad León Alonzo Terrones Caccha}
+\section{Pregunta N$^{\circ}$11\qquad Andre Gilmer Santos Felix}
 
 \input{induction}
 
@@ -6,55 +6,94 @@
 	\begin{enumerate}\setcounter{enumi}{10}
 		\item
 
-		      Sea $n\in \mathbb{N}$ y $A_n$ la matriz asociada al sistema que halla los coeficientes del polinomio de interpolación para $n+1$ puntos. Pruebe que para $A^{t}_{n}=\begin{pmatrix} 1&1&\cdots & 1 &1\\a_0&a_1&\cdots &a_{n-1}&a_{n}\\\vdots&\vdots&\ddots&\vdots&\vdots\\a_0^{n-1}&a_1^{n-1}&\cdots&a_{n-1}^{n-1}& a_{n}^{n-1}\\a_0^{n}&a_1^{n}&\cdots&a_{n-1}^{n}&a_{n}^{n}\end{pmatrix}$ la matriz de Vandermonde se
-		      tiene
+		      Pruebe que el
 		      \begin{math}
-			      \det\left(A_{n}\right)=
-			      \prod\limits_{\substack{0\leq i< j\leq n}}^{n}
-			      \left(a_{j}-a_{i}\right)
-		      \end{math}.
+			      \begin{vmatrix}
+				      A_{n}
+			      \end{vmatrix}=
+			      \prod\limits_{\mathclap{0\leq i< j\leq n}}
+			      \left(t_{j}-t_{i}\right)
+		      \end{math},
+		      donde $A_{n}$ es la matriz de Vandermonde.
 	\end{enumerate}
 
 	\begin{solution}
 
-		Definimos la proposición
+		Sea
 		\begin{math}
 			p\left(n\right)\coloneqq
-			\det\left(A_{n}\right)=
-			\prod\limits_{i=0}^{j}
-			\left(t_{i}-t_{j}\right)
+			\left|A_{n}\right|=
+			\prod\limits_{\mathclap{0\leq i< j\leq n}}
+			\left(t_{j}-t_{i}\right)
 		\end{math}.
+		Por el \alert{Principio de Inducción Matemática} sobre $n$,
 
-		Por el \alert{Principio de Inducción Matemática}, vemos que
-		el caso base $p\left(1\right)$(cuando hay solamente 2 puntos por interpolar) se cumple:
-	\begin{equation*}
-	    \det\begin{pmatrix} 
-            1&a_0\\
-            1&a_1\end{pmatrix}=a_1-a_0
-	\end{equation*}
-  %\begin{equation*}
-	%		\prod\limits_{\substack{i=0\\i\neq j}}^{1}
-	%		\left(x_{i}-x_{j}\right)
-	%		=\det\left(A_{1}\right)
- %
-		%\end{equation*}
+		\begin{itemize}
+			\item
 
-		Para la hipótesis inductiva, asumamos que $p\left(n\right)$ se
-		cumple hasta un $n\in\mathbb{N}$ fijo.
-		%\begin{align*}
-	%		a_{k+1} & \geq a_{k}
-		%\end{align*}
-        Entonces la matriz $$A^{t}_{n+1}=\begin{pmatrix} 1&1&\cdots & 1 &1\\a_0&a_1&\cdots &a_{n}&a_{n+1}\\\vdots&\vdots&\ddots&\vdots&\vdots\\a_0^{n}&a_1^{n}&\cdots&a_{n}^{n}& a_{n+1}^{n}\\a_0^{n+1}&a_1^{n+1}&\cdots&a_{n}^{n+1}&a_{n+1}^{n+1}\end{pmatrix}$$
-        \end{solution}
-    \end{frame}
-    \begin{frame}
-    Aplicando operaciones fila $F_{i,i-1}(-a_{0})$, $2\leq i\leq n+2$
-     De ello obtenemos la siguiente matriz:
-     $$\begin{pmatrix} 1&1&\cdots & 1 &1\\   0&a_1-a_0&\cdots &a_n-a_0&a_{n+1}-a_0\\   \vdots&\vdots&\ddots&\vdots&\vdots\\   0&a_1^{n+1}-a_0a_{1}^{n}&\cdots&a_{n}^{n+1}-a_0a_{n+1}^{n}& a_{n+1}^{n+1}-a_0a_{n+1}^{n}\end{pmatrix}$$
-    Extrayendo $\prod_{j=1}^{n+1}(a_j-a_0)$ se obtiene:
-    
-    $$=\prod_{j=1}^{n+1}(a_j-a_0) \det\begin{pmatrix} 1& 1&\cdots&1\\a_2&a_3&\cdots&a_{n+1}\\ \vdots&\vdots&\ddots&\vdots\\a_2^{n-1}&a_3^{n-1}&\cdots&a_{n+1}^{n-1}\end{pmatrix}$$
-		Luego, $p\left(n+1\right)$ se cumple.
-		Por lo tanto, $p\left(n\right)$ se cumple para todo $n$ natural.
-	
+			      \begin{math}
+				      p\left(1\right)=
+				      \begin{vmatrix}
+					      A_{1}
+				      \end{vmatrix}=
+				      \begin{vmatrix}
+					      1 & t_{0} \\
+					      1 & t_{1}
+				      \end{vmatrix}=
+				      t_{1}-t_{0}=
+				      \prod\limits_{\mathclap{0\leq i< j\leq 1}}
+				      t_{j}-t_{i}
+			      \end{math}
+			      es verdadero.
+
+			\item
+
+			      Supongamos que $p\left(n\right)$ es cierto hasta un
+			      $n_{0}\in\mathbb{N}$.
+
+			      Entonces la matriz
+			      \begin{equation*}
+				      A^{t}_{n+1}=
+				      \begin{pmatrix}
+					      1         & 1         & \cdots & 1           & 1             \\
+					      a_0       & a_1       & \cdots & a_{n}       & a_{n+1}       \\
+					      \vdots    & \vdots    & \ddots & \vdots      & \vdots        \\
+					      a_0^{n}   & a_1^{n}   & \cdots & a_{n}^{n}   & a_{n+1}^{n}   \\
+					      a_0^{n+1} & a_1^{n+1} & \cdots & a_{n}^{n+1} & a_{n+1}^{n+1}
+				      \end{pmatrix}
+			      \end{equation*}
+
+		\end{itemize}
+	\end{solution}
+\end{frame}
+
+\begin{frame}
+	Aplicando operaciones fila $F_{i,i-1}(-a_{0})$, $2\leq i\leq n+2$
+	De ello obtenemos la siguiente matriz:
+	$$\begin{pmatrix} 1&1&\cdots & 1 &1\\   0&a_1-a_0&\cdots &a_n-a_0&a_{n+1}-a_0\\   \vdots&\vdots&\ddots&\vdots&\vdots\\   0&a_1^{n+1}-a_0a_{1}^{n}&\cdots&a_{n}^{n+1}-a_0a_{n+1}^{n}& a_{n+1}^{n+1}-a_0a_{n+1}^{n}\end{pmatrix}$$
+	Extrayendo $\prod_{j=1}^{n+1}(a_j-a_0)$ se obtiene:
+
+	$$=\prod_{j=1}^{n+1}(a_j-a_0) \det\begin{pmatrix} 1& 1&\cdots&1\\a_2&a_3&\cdots&a_{n+1}\\ \vdots&\vdots&\ddots&\vdots\\a_2^{n-1}&a_3^{n-1}&\cdots&a_{n+1}^{n-1}\end{pmatrix}$$
+	Luego, $p\left(n+1\right)$ se cumple.
+	Por lo tanto, $p\left(n\right)$ se cumple para todo $n$ natural.
+
+\end{frame}
+
+\begin{frame}
+	\begin{solution}
+		Sea $n\in\mathbb{N}$ y $A_{n}$ la matriz asociada al sistema
+		que halla los coeficientes del polinomio de interpolación
+		para $n+1$ puntos.
+
+		\begin{equation*}
+			A^{t}_{n}=
+			\begin{pmatrix}
+				1         & 1         & \cdots & 1             & 1           \\
+				a_0       & a_1       & \cdots & a_{n-1}       & a_{n}       \\
+				\vdots    & \vdots    & \ddots & \vdots        & \vdots      \\
+				a_0^{n-1} & a_1^{n-1} & \cdots & a_{n-1}^{n-1} & a_{n}^{n-1} \\
+				a_0^{n}   & a_1^{n}   & \cdots & a_{n-1}^{n}   & a_{n}^{n}
+			\end{pmatrix}
+		\end{equation*}
+	\end{solution}
 \end{frame}
