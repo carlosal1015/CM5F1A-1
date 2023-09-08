@@ -4,6 +4,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import lagrange
 from numpy.polynomial.polynomial import Polynomial
+import sympy as sp
+
+t = sp.Symbol('t', real=True)
+l_0 = 0.5*t*(t-1)
+l_1 = -(t+1)*(t-1)
+l_2 = 0.5*(t+1)*t
+p_lagrange = (0.5*l_0 + l_1 -l_2).simplify()
+print(p_lagrange)
 
 plt.rcParams["text.usetex"] = True
 plt.rcParams["font.serif"] = ["Computer Modern"]

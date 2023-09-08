@@ -30,6 +30,10 @@
 !p1.pdf
 !p4.pdf
 !p6_lagrange.pdf
+!p12.pdf
+!p12_lagrange5.pdf
+!p12_lagrange8.pdf
+!p12_lagrange10.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
