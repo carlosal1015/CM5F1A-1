@@ -12,16 +12,17 @@
     \end{enumerate}
 
     \begin{solution}
-        Sean $c_{0},c_{1},c_{2}\in\mathbb{R}$.
+        Sean $c_{0},c_{1},c_{2},c_{3}\in\mathbb{R}$.
         Por demostrar que
         \begin{math}
             \sum\limits_{k=0}^{3}
             c_{k}
             B_{k,3}\left(t\right)=
             0\implies
-            c_{0}=0,
-            c_{1}=0,
-            c_{2}=0
+            c_{0}=
+            c_{1}=
+            c_{2}=
+            c_{3}=0
         \end{math}.
 
         \begin{equation*}
@@ -53,43 +54,76 @@
         \end{equation*}
         es un polinomio de grado $3$.
         Sean $a_{j}$ los coeficientes de $t^{j}$.
-        \begin{align*}
-            a_{3} & =
-            \sum_{k=0}^{3}
-            c_{k}
-            \binom{3}{k}
-            \binom{3-k}{0}
-            {\left(-1\right)}^{3-k}=
-            -c_{0}+3c_{1}-3c_{2}+c_{3}. \\
-            a_{2} & =
-            \sum_{k=0}^{2}
-            c_{k}
-            \binom{3}{k}
-            \binom{3-k}{1}
-            {\left(-1\right)}^{2-k}=
-            3c_{0}+-6c_{1}+3c_{2}.      \\
-            a_{1} & =
-            \sum_{k=0}^{1}
-            c_{k}
-            \binom{3}{k}
-            \binom{3-k}{2}
-            {\left(-1\right)}^{1-k}=
-            -3c_{0}+3c_{1}.             \\
-            a_{0} & =
-            \sum_{k=0}^{0}
-            c_{k}\
-            binom{3}{k}
-            \binom{3-k}{3}
-            {\left(-1\right)}^{-k}=
-            c_{0}
-        \end{align*}
-    \end{solution}
-\end{frame}
-
-\begin{frame}
-    \begin{solution}
-        Al final se obtiene un sistema lineal en función del vector $c=(c_0,c_1,c_2,c_3)$.
-        Debido a que $\left\{1,t,t^{2},t^{3}\right\}$ es una base para los polinomios de grado $3$ se tiene que $a_k=0$.
-        Finalmente aplicando sustitución progresiva se obtiene $c_{k}=0$, $k\in[0.3]$.
+        \begin{equation*}
+            \begin{aligned}
+                a_{3} & =
+                \sum_{k=0}^{3}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{0}
+                {\left(-1\right)}^{3-k}=
+                -c_{0}+3c_{1}-3c_{2}+c_{3}. \\
+                a_{2} & =
+                \sum_{k=0}^{2}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{1}
+                {\left(-1\right)}^{2-k}=
+                3c_{0}+-6c_{1}+3c_{2}.
+            \end{aligned}
+            \qquad
+            \begin{aligned}
+                a_{1} & =
+                \sum_{k=0}^{1}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{2}
+                {\left(-1\right)}^{1-k}=
+                -3c_{0}+3c_{1}. \\
+                a_{0} & =
+                \sum_{k=0}^{0}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{3}
+                {\left(-1\right)}^{-k}=
+                c_{0}.
+            \end{aligned}
+        \end{equation*}
+        Así, se obtiene un sistema lineal en función del vector
+        \begin{math}
+            c=
+            \left(
+            c_{0},
+            c_{1},
+            c_{2},
+            c_{3}
+            \right)
+        \end{math}.
+        Ya que
+        \begin{math}
+            \left\{
+            1,
+            t,
+            t^{2},
+            t^{3}
+            \right\}
+        \end{math}
+        es una base para los polinomios de grado menor o igual que
+        $3$ se tiene que
+        \begin{math}
+            a_{0}=
+            a_{1}=
+            a_{2}=
+            a_{3}=
+            0
+        \end{math}.
+        Finalmente, aplicando sustitución progresiva se obtiene
+        \begin{math}
+            c_{0}=
+            c_{1}=
+            c_{2}=
+            c_{3}=
+            0
+        \end{math}.
     \end{solution}
 \end{frame}
