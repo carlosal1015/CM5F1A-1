@@ -16,11 +16,12 @@ def plot_lagrange(numbers):
         x = np.linspace(start=-5, stop=5, num=number)
         y = 1 / (1 + x**2)
         poly = lagrange(x, y)
+        print(f"P_{number}:\n{poly}")
         p = Polynomial(poly.coef[::-1]).coef
         delta = 0.1
         x_new = np.arange(start=-5 - delta, stop=5 + delta, step=0.01)
         plt.plot(x_new, Polynomial(poly.coef[::-1])(x_new), 'orange',
-                 lw=0.75, label=f"$P_{{{number}}}(x)$")
+                 lw=0.75, label=f"$P_{{{number}}}(t)$")
         plt.scatter(x, y, s=10, label='Puntos de control')
         # plt.plot(x, y)
         plt.grid()
