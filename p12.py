@@ -20,11 +20,12 @@ def plot_lagrange(numbers):
         delta = 0.1
         x_new = np.arange(start=-5 - delta, stop=5 + delta, step=0.01)
         plt.plot(x_new, Polynomial(poly.coef[::-1])(x_new), 'orange',
-                 lw=0.75, label=f"$0$")
-        plt.scatter(x, y, label='data')
-        plt.plot(x, y)
+                 lw=0.75, label=f"$P_{{{number}}}(x)$")
+        plt.scatter(x, y, s=10, label='Puntos de control')
+        # plt.plot(x, y)
         plt.grid()
         plt.legend()
+        plt.title("Polinomio de Lagrange")
         plt.savefig(f"p12_lagrange{number}.pdf")
         plt.cla()
 
