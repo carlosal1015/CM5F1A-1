@@ -23,6 +23,7 @@ def plot_lagrange(numbers):
         plt.plot(x_new, Polynomial(poly.coef[::-1])(x_new), 'orange',
                  lw=0.75, label=f"$P_{{{number}}}(t)$")
         plt.scatter(x, y, s=10, label='Puntos de control')
+        plt.plot(x, y, lw=0.7, label=r"$f(t)=\frac{1}{1+t^2}$")
         # plt.plot(x, y)
         plt.grid()
         plt.legend()
@@ -43,4 +44,4 @@ def plot():
 
 
 plot_lagrange(numbers=numbers)
-plot()
+# plot()
