@@ -24,7 +24,7 @@ k = 3
 n = 5
 t = np.linspace(start=0, stop=1, num=100)
 plt.plot(t, bernstein(t=t, k=k, n=n), lw=0.75, label=f"$B_{{{n},{k}}}(t)$")
-plt.plot(t, t**3, lw=0.75, label=f"$B^\prime_{{{n},{k}}}(t)$")
+plt.plot(t, t**3, lw=0.75, label=f"$B^{{\prime\prime}}_{{{n},{k}}}(t)$")
 plt.grid()
 plt.legend()
 plt.title(f"Polinomio de Bernstein $B_{{{n},{k}}}(t)$")
