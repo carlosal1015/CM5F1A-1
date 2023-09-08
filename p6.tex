@@ -9,32 +9,34 @@
 
 		      Encuentre el interpolante de Lagrange
 		      \begin{math}
-			      p_{2}\left(t\right)=
-			      \sum\limits_{j=0}^{2}
+			      p_{3}\left(t\right)=
+			      \sum\limits_{j=0}^{3}
 			      x_{j}
 			      L_{j}\left(t\right)
 		      \end{math}
 		      para el conjunto de datos
 		      \begin{math}
 			      \left\{
-			      \left(-1,\frac{1}{2}\right),
 			      \left(0,1\right),
-			      \left((1,-1\right)
+			      \left(\frac{1}{2},2\right),
+			      \left((1,\frac{3}{2}\right),
+                    \left((2,-1\right)
 			      \right\}
 		      \end{math}.
-		      Encuentre $p_{2,j}$ en
+		      Encuentre $p_{3,j}$ en
 		      \begin{math}
-			      p_{2}\left(t\right)=
-			      \sum\limits_{j=0}^{2}
-			      p_{2,j}t^{j}
+			      p_{3}\left(t\right)=
+			      \sum\limits_{j=0}^{3}
+			      p_{3,j}t^{j}
 		      \end{math}.
 	\end{enumerate}
 
 	\begin{solution}
         \begin{align*}
-            L_{0}(t)&=0.5 x(x-1)\\
-            L_{1}(t)&=-1 (x-1)(x+1)\\
+            L_{0}(t)&=0.5 (1-2x)(x-2)(x-1)\\
+            L_{1}(t)&=\frac{8}{3} x(x-2)(x-1)\\
             L_{2}(t)&=0.5 x(x+1)
+            L_{3}(t)&=0.5 x(x+1)
         \end{align*}
         El polinomio de interpolación expresado en la forma de Lagrange es:
         \begin{align*}
