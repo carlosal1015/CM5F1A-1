@@ -23,9 +23,19 @@ def bernstein(t: np.array, k: int, n: int):
 k = 3
 n = 5
 t = np.linspace(start=0, stop=1, num=100)
-plt.plot(t, bernstein(t=t, k=k, n=n), lw=0.75, label=f"$B_{{{n},{k}}}(t)$")
-plt.plot(t, t**3, lw=0.75, label=f"${{\kappa}}(t)$")
+kappa = (40 * t**3 - 120 * t**2 + 60 * t) / (
+    1 + (50 * t**4 - 80 * t**3 + 30 * t**2) ** 2
+) ** (3 / 2)
+
+plt.plot(t, bernstein(t=t, k=k, n=n), lw=0.75, label=f"$B_{{{k},{n}}}(t)$")
 plt.grid()
 plt.legend()
-plt.title(f"Polinomio de Bernstein $B_{{{n},{k}}}(t)$")
+plt.title(f"Polinomio de Bernstein $B_{{{k},{n}}}(t)$")
 plt.savefig("p1.pdf", transparent=True, bbox_inches="tight")
+plt.cla()
+
+plt.plot(t, kappa, lw=0.75, label=f"${{\kappa}}(t)$")
+plt.grid()
+plt.legend()
+plt.title(f"Función curvatura ${{\kappa}}(t)$")
+plt.savefig("p1_curvature.pdf", transparent=True, bbox_inches="tight")
