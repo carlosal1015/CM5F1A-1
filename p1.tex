@@ -1,5 +1,7 @@
 \section{Pregunta N$^{\circ}$1\qquad Andre Gilmer Santos Felix}
 
+\input{bernstein}
+
 \begin{frame}
     \begin{enumerate}\setcounter{enumi}{0}
         \item
@@ -9,38 +11,33 @@
     \end{enumerate}
 
     \begin{solution}
-
-        \begin{definition}[Polinomio de Bernstein]
-            Las funciones base de Bernstein de grado $n$ son
-            \begin{equation*}
-                \forall t\in\left[0,1\right]
-                \forall k\in\left\{0,\dotsc,n\right\}:
-                B_{k,n}\left(t\right)=
-                \binom{n}{k}
-                t^{k}
-                \left(1-t\right)^{n-k}
-            \end{equation*}.
-        \end{definition}
-
-        \begin{theorem}
-            Si $B_{k,n}\left(t\right)$, entonces
-            \begin{math}
-                B^{\prime}_{k,n}\left(t\right)=
-                n
-                \left[
-                    B_{k-1,n-1}\left(t\right)-
-                    B_{k,n-1}\left(t\right)-
-                    \right]
-            \end{math}.
-        \end{theorem}
-
-        Sean los polinomios
+        Sean los polinomios de Bernstein
         \begin{align*}
-            B_{3,5}\left(t\right)                & =
+            B_{1,3}\left(t\right) & =
+            \binom{3}{1}
+            t^{1}
+            \left(1-t\right)^{3-1}=
+            3t{\left(1-t\right)}^{2}.      \\
+            B_{2,4}\left(t\right) & =
+            \binom{4}{2}
+            t^{2}
+            \left(1-t\right)^{4-2}=
+            6t^{2}{\left(1-t\right)}^{2}.  \\
+            B_{3,3}\left(t\right) & =
+            \binom{3}{3}
+            t^{3}
+            \left(1-t\right)^{3-3}=
+            t^{3}.                         \\
+            B_{3,5}\left(t\right) & =
             \binom{5}{3}
             t^{3}
             \left(1-t\right)^{5-3}=
-            10t^{3}{\left(1-t\right)}^{2}.           \\
+            10t^{3}{\left(1-t\right)}^{2}. \\
+        \end{align*}
+
+        entonces
+
+        \begin{align*}
             B^{\prime}_{3,5}\left(t\right)       & =
             5
             \left[
@@ -53,9 +50,14 @@
             \binom{4}{3}t^{3}\left(1-t\right)^{4-3}
             \right]=                                 \\
             B^{\prime\prime}_{3,5}\left(t\right) & =
-            5\left[B^{\prime}_{2,4}\left(t\right)-B^{\prime}_{3,4}\left(t\right)\right]=
-            5\left[
-                4\left[B_{2,4}\left(t\right)\right]
+            5\left(4\right)
+            \left[
+                B_{1,3}\left(t\right)-
+                B_{3,3}\left(t\right)
+                \right]=
+            20
+            \left[
+                B_{2,4}\left(t\right)
                 \right].
         \end{align*}
 
@@ -76,9 +78,13 @@
             \dfrac{
                 y^{\prime\prime}
             }{
-                {\left(1+{y^{\prime}}^{2}\right)}^{\frac{3}{2}}
+                {\left(1+{\left(y^{\prime}\right)}^{2}\right)}^{\frac{3}{2}}
             }=
-            \dfrac{1}{1}.
+            \dfrac{
+                B^{\prime\prime}_{3,5}\left(t\right)
+            }{
+                {\left(1+{\left(B^{\prime}_{3,5}\left(t\right)\right)}^{2}\right)}^{\frac{3}{2}}
+            }.
         \end{equation*}
     \end{solution}
 \end{frame}
