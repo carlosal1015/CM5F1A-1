@@ -1,5 +1,7 @@
 \section{Pregunta N$^{\circ}$12\qquad Carlos Alonso Aznarán Laos}
 
+\input{interpolation_error}
+
 \begin{frame}
     \begin{enumerate}\setcounter{enumi}{11}
         \item
@@ -16,6 +18,24 @@
               gráfica.
     \end{enumerate}
 
+    \begin{solution}
+        En general, no es cierto que los polinomios de interpolación
+        de mayor grado produzcan aproximaciones más precisas.
+        De hecho, para puntos de interpolación equidistantes se
+        deberían utilizar polinomios de orden relativamente bajo.
+
+        Sea $R_{n}\left(x\right)$ el error de interpolación.
+
+        Los nodos equidistantes
+        \begin{math}
+            t^{n}_{j}=
+            -5+10\dfrac{j}{n}
+        \end{math}
+        con $j\in\left\{0,\dotsc,n\right\}$.
+    \end{solution}
+\end{frame}
+
+\begin{frame}
     \begin{solution}
         \begin{figure}[ht!]
             \centering
