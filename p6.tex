@@ -17,10 +17,9 @@
 		      para el conjunto de datos
 		      \begin{math}
 			      \left\{
+			      \left(-1,\dfrac{1}{2}\right),
 			      \left(0,1\right),
-			      \left(\frac{1}{2},2\right),
-			      \left((1,\frac{3}{2}\right),
-			      \left((2,-1\right)
+			      \left((1,-1\right)
 			      \right\}
 		      \end{math}.
 		      Encuentre $p_{2,k}$ en
@@ -32,44 +31,102 @@
 	\end{enumerate}
 
 	\begin{solution}
+		Determinamos las funciones base de Lagrange
+		\begin{math}
+			{\left\{\ell_{k}\right\}}^{2}_{k=0}\subset\mathbb{P}_{2}
+		\end{math}.
+
 		\begin{align*}
 			\ell_{0}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 0}}^{n}
+			\prod\limits_{\substack{j=0    \\j\neq 0}}^{2}
 			\dfrac{t-t_{j}}{t_{0}-t_{j}}=
-			\dfrac{\left(t-t_{1}\right)\left(t-t_{2}\right)}{\left(t_{0}-t_{1}\right)\left(t_{0}-t_{2}\right)}=
-			\dfrac{\left(t-0\right)\left(t-1\right)}{\left(\left(-1\right)-0\right)\left(\left(-1\right)-1\right)}=
-			\dfrac{1}{2}t\left(t-1\right).     \\
+			\dfrac{
+				\left(t-t_{1}\right)
+				\left(t-t_{2}\right)
+			}{
+				\left(t_{0}-t_{1}\right)
+				\left(t_{0}-t_{2}\right)
+			}=
+			\dfrac{
+				\left(t-0\right)
+				\left(t-1\right)
+			}{
+				\left(\left(-1\right)-0\right)
+				\left(\left(-1\right)-1\right)
+			}=
+			\dfrac{t^{2}}{2}-\dfrac{t}{2}. \\
 			\ell_{1}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 1}}^{n}
+			\prod\limits_{\substack{j=0    \\j\neq 1}}^{2}
 			\dfrac{t-t_{j}}{t_{1}-t_{j}}=
-			\dfrac{\left(t-t_{0}\right)\left(t-t_{2}\right)}{\left(t_{1}-t_{0}\right)\left(t_{1}-t_{2}\right)}=
-			\dfrac{\left(t-\left(-1\right)\right)\left(t-1\right)}{\left(0-\left(-1\right)\right)\left(0-1\right)}=
-			-\left(t+1\right)\left(t-1\right). \\
+			\dfrac{
+				\left(t-t_{0}\right)
+				\left(t-t_{2}\right)
+			}{
+				\left(t_{1}-t_{0}\right)
+				\left(t_{1}-t_{2}\right)}=
+			\dfrac{
+				\left(t-\left(-1\right)\right)
+				\left(t-1\right)
+			}{
+				\left(0-\left(-1\right)\right)
+				\left(0-1\right)
+			}=
+			1-t^{2}.                       \\
 			\ell_{2}\left(t\right) & =
-			\prod\limits_{\substack{j=0        \\j\neq 2}}^{n}
+			\prod\limits_{\substack{j=0    \\j\neq 2}}^{2}
 			\dfrac{t-t_{j}}{t_{2}-t_{j}}=
-			\dfrac{\left(t-t_{0}\right)\left(t-t_{1}\right)}{\left(t_{2}-t_{0}\right)\left(t_{2}-t_{1}\right)}=
-			\dfrac{\left(t-\left(-1\right)\right)\left(t-0\right)}{\left(1-\left(-1\right)\right)\left(1-0\right)}=
-			\dfrac{1}{2}\left(t+1\right)t.
+			\dfrac{
+				\left(t-t_{0}\right)
+				\left(t-t_{1}\right)
+			}{
+				\left(t_{2}-t_{0}\right)
+				\left(t_{2}-t_{1}\right)
+			}=
+			\dfrac{
+				\left(t-\left(-1\right)\right)
+				\left(t-0\right)
+			}{
+				\left(1-\left(-1\right)\right)
+				\left(1-0\right)
+			}=
+			\dfrac{t^{2}}{2}+\dfrac{t}{2}.
 		\end{align*}
 
-		Entonces,
+		Entonces, el polinomio interpolador de Lagrange es
 		\begin{align*}
 			p_{2}\left(t\right) & =
 			\sum\limits_{k=0}^{2}
 			x_{k}
 			\ell_{k}\left(t\right)=
-			\alert{x_{0}}\ell_{0}\left(t\right)+
-			\alert{x_{1}}\ell_{1}\left(t\right)+
+			\alert{x_{0}}
+			\ell_{0}\left(t\right)+
+			\alert{x_{1}}
+			\ell_{1}\left(t\right)+
 			\alert{x_{2}}\ell_{2}\left(t\right)=
-			\dfrac{1}{2}\ell_{0}\left(t\right)+
-			\ell_{1}\left(t\right)-
+			\left(
+			\alert{\dfrac{1}{2}}
+			\right)
+			\ell_{0}\left(t\right)+
+			\left(
+			\alert{1}
+			\right)
+			\ell_{1}\left(t\right)+
+			\left(
+			\alert{-1}
+			\right)
 			\ell_{2}\left(t\right). \\
 			                    & =
-			\dfrac{1}{2}\alert{\dfrac{1}{2}t\left(t-1\right)}
-			\alert{-\left(t+1\right)\left(t-1\right)}-
-			\alert{\dfrac{1}{2}\left(t+1\right)t}=
-			-1.25t^{2}-0.75t+1.
+			\dfrac{1}{2}
+			\left(
+			\alert{\dfrac{t^{2}}{2}-\dfrac{t}{2}}
+			\right)+
+			\left(
+			\alert{1-t^{2}}
+			\right)-
+			\left(
+			\alert{\dfrac{t^{2}}{2}+\dfrac{t}{2}}
+			\right)=
+			-\dfrac{5}{4}t^{2}-\dfrac{3}{4}t+1.
 		\end{align*}
 	\end{solution}
 \end{frame}
@@ -82,7 +139,6 @@
 		\end{figure}
 	\end{solution}
 \end{frame}
-
 
 \begin{frame}
 	\begin{solution}

@@ -42,7 +42,7 @@ def plot_b_n(numbers: list):
                  label=f"$B_{{{number}}}(x)$")
 
     plt.grid()
-    plt.legend()
+    plt.legend(title="Leyenda", shadow=True, fancybox=True)
     plt.title(r"Polinomios $B_{n}\left(x\right)$")
     plt.savefig("p4.pdf", transparent=True, bbox_inches="tight")
 
