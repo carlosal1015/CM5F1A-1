@@ -7,11 +7,20 @@
         \item
 
               Calcule la curvatura de la gráfica del polinomio de
-              $B_{3,5}\left(t\right)$.
+              \begin{math}
+                  B_{3,5}\left(t\right)=
+                  \binom{5}{3}
+                  t^{3}
+                  \left(1-t\right)^{5-3}=
+                  10t^{3}{\left(1-t\right)}^{2}=
+                  10t^{5}-20t^{4}+10t^{3}
+              \end{math}.
     \end{enumerate}
 
     \begin{solution}
-        Sean los polinomios de Bernstein
+        Determinamos los polinomios de Bernstein involucrados en las
+        fórmulas de la primera y segunda derivada de
+        $B_{3,5}\left(t\right)$.
         \begin{align*}
             B_{1,3}\left(t\right)                & =
             \binom{3}{1}
@@ -19,6 +28,12 @@
             \left(1-t\right)^{3-1}=
             3t{\left(1-t\right)}^{2}=
             3t^{3}-6t^{2}+3t.                        \\
+            B_{2,3}\left(t\right)                & =
+            \binom{3}{2}
+            t^{2}
+            \left(1-t\right)^{3-2}=
+            3t^{2}\left(1-t\right)=
+            -3t^{3}+3t^{2}.                          \\
             B_{2,4}\left(t\right)                & =
             \binom{4}{2}
             t^{2}
@@ -35,16 +50,8 @@
             t^{3}
             \left(1-t\right)^{4-3}=
             4t^{3}\left(1-t\right)=
-            -4t^{4}+4t^{3}.                          \\
-            \Aboxed{
-            B_{3,5}\left(t\right)                & =
-            \binom{5}{3}
-            t^{3}
-            \left(1-t\right)^{5-3}=
-            10t^{3}{\left(1-t\right)}^{2}=
-            10t^{5}-20t^{4}+10t^{3}.
-            }
-            \shortintertext{entonces}
+            -4t^{4}+4t^{3}.
+            \shortintertext{Entonces,}
             B^{\prime}_{3,5}\left(t\right)       & =
             5
             \left[
@@ -56,11 +63,16 @@
             5\left(4\right)
             \left[
                 B_{1,3}\left(t\right)-
+                2B_{2,3}\left(t\right)+
                 B_{3,3}\left(t\right)
                 \right]=
-            40t^{3}-120t^{2}+60t.
+            200t^{3}-240t^{2}+60t.
         \end{align*}
+    \end{solution}
+\end{frame}
 
+\begin{frame}
+    \begin{solution}
         La curvatura de la gráfica
         \begin{math}
             \left(

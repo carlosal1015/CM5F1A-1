@@ -23,11 +23,11 @@ def bernstein(t: np.array, k: int, n: int):
 k = 3
 n = 5
 t = np.linspace(start=0, stop=1, num=100)
-kappa = (40 * t**3 - 120 * t**2 + 60 * t) / (
+kappa = (200 * t**3 - 240 * t**2 + 60 * t) / (
     1 + (50 * t**4 - 80 * t**3 + 30 * t**2) ** 2
 ) ** (3 / 2)
 
-plt.plot(t, bernstein(t=t, k=k, n=n), lw=0.75, label=f"$B_{{{k},{n}}}(t)$")
+plt.plot(t, bernstein(t=t, k=k, n=n), lw=0.75, label=f"$10t^5-20t^4+10t^3$")
 plt.grid()
 plt.legend()
 plt.title(f"Polinomio de Bernstein $B_{{{k},{n}}}(t)$")

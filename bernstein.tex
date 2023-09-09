@@ -9,7 +9,7 @@
             t^{k}
             \left(1-t\right)^{n-k}.
         \end{equation*}
-        Y la convención
+        Con la convención
         \begin{math}
             B_{-1,n-1}=
             B_{n,n-1}\equiv0
@@ -35,50 +35,73 @@
             n\left(n-1\right)
             \left[
                 B_{k-2,n-2}\left(t\right)-
+                2B_{k-1,n-2}\left(t\right)+
                 B_{k,n-2}\left(t\right)
                 \right]
         \end{math}.
     \end{corollary}
 
     \begin{proof}
+        Sea
+        \begin{math}
+            B_{k,n}\left(t\right)\coloneqq
+            \binom{n}{k}
+            t^{k}
+            \left(1-t\right)^{n-k}
+        \end{math}
+        un polinomio de Bernstein.
+        Entonces,
         \begin{align*}
             {\left(
-                \alert{
-                    B^{\prime}_{k,n}\left(t\right)
-                }
+                B^{\prime}_{k,n}\left(t\right)
                 \right)}^{\prime}
              & =
             \left(
-            \alert{
-                n
-                \left[
+            n
+            \left[
                 B_{k-1,n-1}\left(t\right)-
                 B_{k,n-1}\left(t\right)
                 \right]
-            }
             \right)^{\prime} \\
              & =
             n\left[
-                B^{\prime}_{k-1,n-1}\left(t\right)-
-                B^{\prime}_{k,n-1}\left(t\right)
+                \alert{
+                    B^{\prime}_{k-1,n-1}\left(t\right)
+                }    -
+                \alert{
+                    B^{\prime}_{k,n-1}\left(t\right)
+                }
             \right]          \\
              & =
             n\left[
-                \left(n-1\right)
-                \left[
-                    B_{k-2,n-2}\left(t\right)-
-                    B_{k-1,n-2}\left(t\right)
-                    \right]-
-                \left(n-1\right)
-                \left[
-                    B_{k-1,n-2}\left(t\right)-
-                    B_{k,n-2}\left(t\right)
-                    \right]
+                \alert{
+                    \left(n-1\right)
+                    \left[
+                        B_{k-2,n-2}\left(t\right)-
+                        B_{k-1,n-2}\left(t\right)
+                        \right]
+                }    -
+                \alert{
+                    \left(n-1\right)
+                    \left[
+                        B_{k-1,n-2}\left(t\right)-
+                        B_{k,n-2}\left(t\right)
+                        \right]
+                }
             \right]          \\
              & =
             n\left(n-1\right)
             \left[
                 B_{k-2,n-2}\left(t\right)-
+                B_{k-1,n-2}\left(t\right)-
+                B_{k-1,n-2}\left(t\right)+
+                B_{k,n-2}\left(t\right)
+            \right].         \\
+             & =
+            n\left(n-1\right)
+            \left[
+                B_{k-2,n-2}\left(t\right)-
+                2B_{k-1,n-2}\left(t\right)+
                 B_{k,n-2}\left(t\right)
                 \right].
         \end{align*}
