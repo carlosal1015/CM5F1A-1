@@ -5,30 +5,37 @@
         \item
               Demostrar que las funciones base de Bernstein para
               $n=3$ son linealmente independientes.
-              Por consiguiente, son una base del espacio de
-              polinomios de grado menor o igual que $3$.
+              Por consiguiente, son una base de $\mathbb{P}_{3}$
+              (\alert{el espacio de polinomios de grado menor o igual
+                  que $3$}).
               ¿Por qué basta con probar la independencia lineal?
               ¿Cómo se podría generalizar este argumento?
     \end{enumerate}
 
     \begin{solution}
-        Sean $c_{0},c_{1},c_{2},c_{3}\in\mathbb{R}$.
+        Sean
+        \begin{math}
+            {\left\{c_{k}\right\}}^{3}_{k=0}\subset\mathbb{R}
+        \end{math}
+        y
+        \begin{math}
+            {\left\{B_{k,3}\right\}}^{3}_{k=0}\subset\mathbb{P}_{3}
+        \end{math}.
         Por demostrar que
         \begin{math}
             \sum\limits_{k=0}^{3}
             c_{k}
             B_{k,3}\left(t\right)=
             0\implies
-            c_{0}=
-            c_{1}=
-            c_{2}=
-            c_{3}=0
+            \forall k\in\left\{0,\dotsc,3\right\}:
+            c_{k}=0
         \end{math}.
 
-        \begin{equation*}
+        \begin{align}
             \sum_{k=0}^{3}
             c_{k}
-            B_{k,3}\left(t\right)=
+            B_{k,3}\left(t\right)
+             & =
             \sum_{k=0}^{3}
             c_{k}
             \binom{3}{k}
@@ -43,87 +50,105 @@
                 \binom{3-k}{j}
                 1^{j}
                     {\left(-t\right)}^{3-k-j}
-            }=
-            \sum_{j=0}^{3}
-            t^{n-j}
-            \sum_{k=0}^{3-j}
-            c_{k}
-            \binom{3}{k}
-            \binom{3-k}{j}
-            \left(-1\right)^{3-k-j}
-        \end{equation*}
-        es un polinomio de grado $3$.
-        Sean $a_{j}$ los coeficientes de $t^{j}$.
-        \begin{equation*}
-            \begin{aligned}
-                a_{3} & =
+            }\notag \\
+            \label{eq:basis_bernstein}
+            \Aboxed{
                 \sum_{k=0}^{3}
                 c_{k}
-                \binom{3}{k}
-                \binom{3-k}{0}
-                {\left(-1\right)}^{3-k}=
-                -c_{0}+3c_{1}-3c_{2}+c_{3}. \\
-                a_{2} & =
-                \sum_{k=0}^{2}
+                B_{k,3}\left(t\right)
+             & =
+                \sum_{j=0}^{3}
+                t^{n-j}
+                \sum_{k=0}^{3-j}
                 c_{k}
                 \binom{3}{k}
-                \binom{3-k}{1}
-                {\left(-1\right)}^{2-k}=
-                3c_{0}+-6c_{1}+3c_{2}.
-            \end{aligned}
-            \qquad
+                \binom{3-k}{j}
+                \left(-1\right)^{3-k-j}\in\mathbb{P}_{3}.
+            }       \\
+            \label{eq:basis_standard}
+            \Aboxed{
+                \sum_{k=0}^{3}
+                c_{k}
+                B_{k,3}\left(t\right)
+             & =
+                \sum_{k=0}^{3}
+                a_{k}
+                t^{k}\in\mathbb{P}_{3}.
+            }
+        \end{align}
+        Evaluamos para $j\in\left\{0,\dotsc,3\right\}$
+        en~\eqref{eq:basis_bernstein} e igualamos
+        con~\eqref{eq:basis_standard}.
+
+        \begin{equation*}
             \begin{aligned}
-                a_{1} & =
-                \sum_{k=0}^{1}
-                c_{k}
-                \binom{3}{k}
-                \binom{3-k}{2}
-                {\left(-1\right)}^{1-k}=
-                -3c_{0}+3c_{1}. \\
                 a_{0} & =
                 \sum_{k=0}^{0}
                 c_{k}
                 \binom{3}{k}
                 \binom{3-k}{3}
                 {\left(-1\right)}^{-k}=
-                c_{0}.
+                c_{0}.    \\
+                a_{1} & =
+                \sum_{k=0}^{1}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{2}
+                {\left(-1\right)}^{1-k}=
+                -3c_{0}+3c_{1}.
+            \end{aligned}
+            \qquad
+            \begin{aligned}
+                a_{2} & =
+                \sum_{k=0}^{2}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{1}
+                {\left(-1\right)}^{2-k}=
+                3c_{0}+-6c_{1}+3c_{2}. \\
+                a_{3} & =
+                \sum_{k=0}^{3}
+                c_{k}
+                \binom{3}{k}
+                \binom{3-k}{0}
+                {\left(-1\right)}^{3-k}=
+                -c_{0}+3c_{1}-3c_{2}+c_{3}.
             \end{aligned}
         \end{equation*}
-        Así, se obtiene un sistema lineal en función del vector
-        \begin{math}
-            c=
-            \left(
-            c_{0},
-            c_{1},
-            c_{2},
-            c_{3}
-            \right)
-        \end{math}.
-        Ya que
-        \begin{math}
-            \left\{
-            1,
-            t,
-            t^{2},
-            t^{3}
-            \right\}
-        \end{math}
-        es una base para los polinomios de grado menor o igual que
-        $3$ se tiene que
-        \begin{math}
-            a_{0}=
-            a_{1}=
-            a_{2}=
-            a_{3}=
-            0
-        \end{math}.
-        Finalmente, aplicando sustitución progresiva se obtiene
-        \begin{math}
-            c_{0}=
-            c_{1}=
-            c_{2}=
-            c_{3}=
-            0
-        \end{math}.
     \end{solution}
+\end{frame}
+
+\begin{frame}
+    Así, se obtiene un sistema lineal
+    \begin{equation*}
+        \begin{bmatrix}
+            c_{0} \\
+            c_{1} \\
+            c_{2} \\
+            c_{3}
+        \end{bmatrix}
+    \end{equation*}
+    Ya que
+    \begin{math}
+        \left\{
+        1,
+        t,
+        t^{2},
+        t^{3}
+        \right\}
+    \end{math}
+    es una base para los polinomios de grado menor o igual que
+    $3$ se tiene que
+    \begin{math}
+        a_{0}=
+        a_{1}=
+        a_{2}=
+        a_{3}=
+        0
+    \end{math}.
+    Resolviendo el sistema por sustitución progresiva se obtiene
+    \begin{math}
+        \forall k\in\left\{0,\dotsc,3\right\}:
+        c_{k}=0
+    \end{math}.
 \end{frame}
