@@ -119,51 +119,79 @@
 \end{frame}
 
 \begin{frame}
-    Pero,
-    \begin{math}
-        \left\{
-        1,
-        t,
-        t^{2},
-        t^{3}
-        \right\}\subset\mathbb{P}_{3}
-    \end{math}
-    es un conjunto linealmente independiente.
-    O sea,
-    \begin{math}
-        \sum\limits_{k=0}^{3}
-        a_{k}
-        t^{k}=
-        0\implies
-        \forall k\in\left\{0,\dotsc,3\right\}:
-        a_{k}=0
-    \end{math}.
+    \begin{solution}
+        Pero,
+        \begin{math}
+            \left\{
+            1,
+            t,
+            t^{2},
+            t^{3}
+            \right\}\subset\mathbb{P}_{3}
+        \end{math}
+        es un conjunto linealmente independiente.
+        O sea,
+        \begin{math}
+            \sum\limits_{k=0}^{3}
+            a_{k}
+            t^{k}=
+            0\implies
+            \forall k\in\left\{0,\dotsc,3\right\}:
+            a_{k}=0
+        \end{math}.
 
-    Así, resolvemos el sistema lineal por sustitución progresiva
-    \begin{equation*}
-        \begin{bmatrix}
-            1  & 0  & 0  & 0 \\
-            -3 & 3  & 0  & 0 \\
-            3  & -6 & 3  & 0 \\
-            -1 & 3  & -3 & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-            c_{0} \\
-            c_{1} \\
-            c_{2} \\
-            c_{3}
-        \end{bmatrix}=
-        \begin{bmatrix}
-            a_{0} \\
-            a_{1} \\
-            a_{2} \\
-            a_{3}
-        \end{bmatrix}.
-    \end{equation*}
+        Así, resolvemos el sistema lineal por sustitución progresiva
+        \begin{equation*}
+            \begin{bmatrix}
+                1  & 0  & 0  & 0 \\
+                -3 & 3  & 0  & 0 \\
+                3  & -6 & 3  & 0 \\
+                -1 & 3  & -3 & 1
+            \end{bmatrix}
+            \begin{bmatrix}
+                c_{0} \\
+                c_{1} \\
+                c_{2} \\
+                c_{3}
+            \end{bmatrix}=
+            \begin{bmatrix}
+                a_{0} \\
+                a_{1} \\
+                a_{2} \\
+                a_{3}
+            \end{bmatrix}=
+            \begin{bmatrix}
+                0 \\
+                0 \\
+                0 \\
+                0
+            \end{bmatrix}.
+        \end{equation*}
 
-    \begin{math}
-        \therefore
-        \forall k\in\left\{0,\dotsc,3\right\}:
-        c_{k}=0
-    \end{math}.
+        \begin{math}
+            \therefore
+            \forall k\in\left\{0,\dotsc,3\right\}:
+            c_{k}=0
+        \end{math}.
+
+        Basta con probar la independientes lineal de las funciones
+        base de Bernstein para afirmar que es una base de
+        $\mathbb{P}_3$ en virtud del siguiente teorema.
+
+        \begin{theorem}[Teorema de la dimensión para espacios vectoriales]
+            Sea $V$ un espacio vectorial que admite una base de $n$
+            vectores.
+            Entonces, cualquier sistema de vectores linealmente
+            independiente de $V$ tiene a lo más $n$ elementos y
+            cualquier otra base de $V$ tiene $n$ elementos.
+        \end{theorem}
+
+        Este teorema también es se generaliza para espacios vectoriales de
+        dimensión infinita.
+
+        \begin{theorem}
+            Dado un espacio vectorial $V$, cualesquiera dos bases de
+            $V$ tienen la misma cardinalidad.
+        \end{theorem}
+    \end{solution}
 \end{frame}

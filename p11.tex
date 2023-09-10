@@ -14,26 +14,20 @@
 			      \prod\limits_{\mathclap{0\leq i< j\leq n}}
 			      \left(t_{j}-t_{i}\right)
 		      \end{math},
-		      donde $A_{n}$ es la matriz de Vandermonde.
+		      donde
+		      \begin{math}
+			      A_{n}=
+			      \begin{bmatrix}
+				      1      & \cdots & t_{0}^{n} \\
+				      \vdots & \ddots & \vdots    \\
+				      1      & \cdots & t_{n}^{n}
+			      \end{bmatrix}
+		      \end{math}
+		      es la matriz de Vandermonde.
 	\end{enumerate}
 
 	\begin{solution}
-		Sea $n\in\mathbb{N}$ y $A_{n}$ la matriz asociada al sistema
-		que halla los coeficientes del polinomio de interpolación
-		para $n+1$ puntos.
-
-		\begin{equation*}
-			A^{t}_{n}\coloneqq
-			\begin{bmatrix}
-				1         & 1         & \cdots & 1             & 1           \\
-				t_0       & t_1       & \cdots & t_{n-1}       & t_{n}       \\
-				\vdots    & \vdots    & \ddots & \vdots        & \vdots      \\
-				t_0^{n-1} & t_1^{n-1} & \cdots & t_{n-1}^{n-1} & t_{n}^{n-1} \\
-				t_0^{n}   & t_1^{n}   & \cdots & t_{n-1}^{n}   & t_{n}^{n}
-			\end{bmatrix}.
-		\end{equation*}
-
-		Sea
+		Sean $n\in\mathbb{N}$ y
 		\begin{math}
 			p\left(n\right)\coloneqq
 			\left|A_{n}\right|=
@@ -62,31 +56,81 @@
 
 			\item
 
-			      Supongamos que $p\left(n\right)$ es cierto hasta un
-			      $n_{0}\in\mathbb{N}$. Es decir,
-
-			      \begin{equation*}
+			      Supongamos que $p\left(k\right)$ es verdadero,
+			      es decir,
+			      \begin{math}
+				      \left|
+				      A_{k}
+				      \right|=
+				      \prod\limits_{\mathclap{0\leq i< j\leq k}}
+				      \left(t_{j}-t_{i}\right)=
 				      \begin{vmatrix}
-					      1           & 1           & \cdots & 1           & 1             \\
-					      t_{0}       & t_{1}       & \cdots & t_{n}       & t_{n+1}       \\
-					      \vdots      & \vdots      & \ddots & \vdots      & \vdots        \\
-					      t_{0}^{n}   & t_{1}^{n}   & \cdots & t_{n}^{n}   & t_{n+1}^{n}   \\
-					      t_{0}^{n+1} & t_{1}^{n+1} & \cdots & t_{n}^{n+1} & t_{n+1}^{n+1}
+					      1      & \cdots & t_{0}^{k} \\
+					      \vdots & \ddots & \vdots    \\
+					      1      & \cdots & t_{k}^{k}
+				      \end{vmatrix}.
+			      \end{math}
+			      Veamos que $p\left(k+1\right)$ es verdadero.
+
+			      \begin{align*}
+				      \left|
+				      A_{k+1}
+				      \right| & =
+				      \begin{vmatrix}
+					      1      & t_{0}   & \cdots & t_{0}^{k+1}   \\
+					      1      & t_{1}   & \cdots & t_{1}^{k+1}   \\
+					      \vdots & \vdots  & \ddots & \vdots        \\
+					      1      & t_{k+1} & \cdots & t_{k+1}^{k+1}
+				      \end{vmatrix}
+				      \overset{\left(\star\right)}{=}
+				      \begin{vmatrix}
+					      1      & t_{0}-\alert{1}\cdot t_{0}   & \cdots & t_{0}^{k+1}-\alert{t_{0}^{k}}\cdot t_{0}     \\
+					      1      & t_{1}-\alert{1}\cdot t_{0}   & \cdots & t_{1}^{k+1}-\alert{t_{1}^{k}}\cdot t_{0}     \\
+					      \vdots & \vdots                       & \ddots & \vdots                                       \\
+					      1      & t_{k+1}-\alert{1}\cdot t_{0} & \cdots & t_{k+1}^{k+1}-\alert{t_{k+1}^{k}}\cdot t_{0}
 				      \end{vmatrix}=
-				      \prod\limits_{\mathclap{0\leq i< j\leq n_{0}}}
+				      \begin{vmatrix}
+					      1      & 0             & \cdots & 0                                   \\
+					      1      & t_{1}-t_{0}   & \cdots & \left(t_{1}-t_{0}\right)t_{1}^{k}   \\
+					      \vdots & \vdots        & \ddots & \vdots                              \\
+					      1      & t_{k+1}-t_{0} & \cdots & \left(t_{k+1}-t_{0}\right)t_{k}^{k}
+				      \end{vmatrix}. \\
+				              & =
+				      \begin{vmatrix}
+					      t_{1}-t_{0}   & \cdots & \left(t_{1}-t_{0}\right)t_{1}^{k}   \\
+					      \vdots        & \ddots & \vdots                              \\
+					      t_{k+1}-t_{0} & \cdots & \left(t_{k+1}-t_{0}\right)t_{k}^{k}
+				      \end{vmatrix}=
+				      \prod\limits_{\mathclap{0 <j\leq k+1}}
+				      \left(t_{j}-t_{0}\right)
+				      \alert{
+					      \begin{vmatrix}
+						      1      & \cdots & t_{1}^{k} \\
+						      \vdots & \ddots & \vdots    \\
+						      1      & \cdots & t_{k}^{k}
+					      \end{vmatrix}
+				      }\overset{\text{H.I.}}{=}
+				      \prod\limits_{\mathclap{0 <j\leq k+1}}
+				      \left(t_{j}-t_{0}\right)
+				      \alert{
+					      \prod\limits_{\mathclap{0\leq i< j\leq k}}
+					      \left(t_{j}-t_{i}\right)
+				      }
+				      =
+				      \prod\limits_{\mathclap{0\leq i< j\leq k+1}}
 				      \left(t_{j}-t_{i}\right).
-			      \end{equation*}
+			      \end{align*}
+			      En $\left(\star\right)$, hemos aplicado las operaciones
+			      \begin{math}
+				      \forall j\in\left\{2,\dotsc,k+1\right\}:
+				      c_{j+1}\leftarrow
+				      c_{j+1}-c_{j}\cdot t_{0}
+			      \end{math}.
+			      $\therefore\forall n\in\mathbb{N}$, $p\left(n\right)$ es
+			      verdadero.
+			      % $A_{n}$ la matriz de Vandermonde asociada al sistema
+			      % que halla los coeficientes del polinomio de interpolación
+			      % para $n+1$ puntos distintos.
 		\end{itemize}
 	\end{solution}
-\end{frame}
-
-\begin{frame}
-	Aplicando operaciones fila $F_{i,i-1}(-a_{0})$, $2\leq i\leq n+2$
-	De ello obtenemos la siguiente matriz:
-	$$\begin{pmatrix} 1&1&\cdots & 1 &1\\   0&a_1-a_0&\cdots &a_n-a_0&a_{n+1}-a_0\\   \vdots&\vdots&\ddots&\vdots&\vdots\\   0&a_1^{n+1}-a_0a_{1}^{n}&\cdots&a_{n}^{n+1}-a_0a_{n+1}^{n}& a_{n+1}^{n+1}-a_0a_{n+1}^{n}\end{pmatrix}$$
-	Extrayendo $\prod_{j=1}^{n+1}(a_j-a_0)$ se obtiene:
-
-	$$=\prod_{j=1}^{n+1}(a_j-a_0) \det\begin{pmatrix} 1& 1&\cdots&1\\a_2&a_3&\cdots&a_{n+1}\\ \vdots&\vdots&\ddots&\vdots\\a_2^{n-1}&a_3^{n-1}&\cdots&a_{n+1}^{n-1}\end{pmatrix}$$
-	Luego, $p\left(n+1\right)$ se cumple.
-	Por lo tanto, $p\left(n\right)$ se cumple para todo $n$ natural.
 \end{frame}
