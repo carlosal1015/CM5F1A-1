@@ -1,13 +1,13 @@
 \begin{frame}
     \begin{definition}[Polinomio de Bernstein]
-        Las funciones base de Bernstein de grado $n$ son
+        Las funciones base de Bernstein son
         \begin{equation*}
             \forall t\in\left[0,1\right]:
             \forall k\in\left\{0,\dotsc,n\right\}:
             B_{k,n}\left(t\right)\coloneqq
             \binom{n}{k}
             t^{k}
-            \left(1-t\right)^{n-k}.
+            \left(1-t\right)^{n-k}\in\mathbb{P}_{n}.
         \end{equation*}
         Con la convención
         \begin{math}
@@ -21,10 +21,10 @@
         \begin{math}
             B^{\prime}_{k,n}\left(t\right)=
             n
-            \left[
-                B_{k-1,n-1}\left(t\right)-
-                B_{k,n-1}\left(t\right)
-                \right]
+            \left(
+            B_{k-1,n-1}\left(t\right)-
+            B_{k,n-1}\left(t\right)
+            \right)
         \end{math}.
     \end{theorem}
 
@@ -33,18 +33,18 @@
         \begin{math}
             B^{\prime\prime}_{k,n}\left(t\right)=
             n\left(n-1\right)
-            \left[
-                B_{k-2,n-2}\left(t\right)-
-                2B_{k-1,n-2}\left(t\right)+
-                B_{k,n-2}\left(t\right)
-                \right]
+            \left(
+            B_{k-2,n-2}\left(t\right)-
+            2B_{k-1,n-2}\left(t\right)+
+            B_{k,n-2}\left(t\right)
+            \right)
         \end{math}.
     \end{corollary}
 
     \begin{proof}
         Sea
         \begin{math}
-            B_{k,n}\left(t\right)\coloneqq
+            B_{k,n}\left(t\right)=
             \binom{n}{k}
             t^{k}
             \left(1-t\right)^{n-k}
@@ -58,52 +58,52 @@
              & =
             \left(
             n
-            \left[
-                B_{k-1,n-1}\left(t\right)-
-                B_{k,n-1}\left(t\right)
-                \right]
+            \left(
+            B_{k-1,n-1}\left(t\right)-
+            B_{k,n-1}\left(t\right)
+            \right)
             \right)^{\prime}. \\
              & =
-            n\left[
-                \alert{
-                    B^{\prime}_{k-1,n-1}\left(t\right)
-                }    -
-                \alert{
-                    B^{\prime}_{k,n-1}\left(t\right)
-                }
-            \right].          \\
+            n\left(
+            \alert{
+                B^{\prime}_{k-1,n-1}\left(t\right)
+            }    -
+            \alert{
+                B^{\prime}_{k,n-1}\left(t\right)
+            }
+            \right).          \\
              & =
-            n\left[
-                \alert{
-                    \left(n-1\right)
-                    \left[
-                        B_{k-2,n-2}\left(t\right)-
-                        B_{k-1,n-2}\left(t\right)
-                        \right]
-                }    -
-                \alert{
-                    \left(n-1\right)
-                    \left[
-                        B_{k-1,n-2}\left(t\right)-
-                        B_{k,n-2}\left(t\right)
-                        \right]
-                }
-            \right].          \\
-             & =
-            n\left(n-1\right)
-            \left[
+            n\left(
+            \alert{
+                \left(n-1\right)
+                \left(
                 B_{k-2,n-2}\left(t\right)-
+                B_{k-1,n-2}\left(t\right)
+                \right)
+            }    -
+            \alert{
+                \left(n-1\right)
+                \left(
                 B_{k-1,n-2}\left(t\right)-
-                B_{k-1,n-2}\left(t\right)+
                 B_{k,n-2}\left(t\right)
-            \right].          \\
+                \right)
+            }
+            \right).          \\
              & =
             n\left(n-1\right)
-            \left[
-                B_{k-2,n-2}\left(t\right)-
-                2B_{k-1,n-2}\left(t\right)+
-                B_{k,n-2}\left(t\right)
-                \right].
+            \left(
+            B_{k-2,n-2}\left(t\right)-
+            B_{k-1,n-2}\left(t\right)-
+            B_{k-1,n-2}\left(t\right)+
+            B_{k,n-2}\left(t\right)
+            \right).          \\
+             & =
+            n\left(n-1\right)
+            \left(
+            B_{k-2,n-2}\left(t\right)-
+            2B_{k-1,n-2}\left(t\right)+
+            B_{k,n-2}\left(t\right)
+            \right).
         \end{align*}
     \end{proof}
 \end{frame}

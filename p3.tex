@@ -58,7 +58,7 @@
                 B_{k,3}\left(t\right)
              & =
                 \sum_{j=0}^{3}
-                t^{n-j}
+                t^{3-j}
                 \sum_{k=0}^{3-j}
                 c_{k}
                 \binom{3}{k}
@@ -76,42 +76,42 @@
                 t^{k}\in\mathbb{P}_{3}.
             }
         \end{align}
-        Evaluamos para $j\in\left\{0,\dotsc,3\right\}$
-        en~\eqref{eq:basis_bernstein} e igualamos
-        con~\eqref{eq:basis_standard}.
+        Igualando los coeficientes del mismo grado
+        en~\eqref{eq:basis_bernstein} y~\eqref{eq:basis_standard},
+        es decir, para $j\in\left\{3,\dotsc,0\right\}$:
 
         \begin{equation*}
             \begin{aligned}
                 a_{0} & =
-                \sum_{k=0}^{0}
+                \sum_{k=0}^{3-\alert{3}}
                 c_{k}
                 \binom{3}{k}
-                \binom{3-k}{3}
-                {\left(-1\right)}^{-k}=
+                \binom{3-k}{\alert{3}}
+                {\left(-1\right)}^{3-k-\alert{3}}=
                 c_{0}.    \\
                 a_{1} & =
-                \sum_{k=0}^{1}
+                \sum_{k=0}^{3-\alert{2}}
                 c_{k}
                 \binom{3}{k}
-                \binom{3-k}{2}
-                {\left(-1\right)}^{1-k}=
+                \binom{3-k}{\alert{2}}
+                {\left(-1\right)}^{3-k-\alert{2}}=
                 -3c_{0}+3c_{1}.
             \end{aligned}
             \qquad
             \begin{aligned}
                 a_{2} & =
-                \sum_{k=0}^{2}
+                \sum_{k=0}^{3-\alert{1}}
                 c_{k}
                 \binom{3}{k}
-                \binom{3-k}{1}
-                {\left(-1\right)}^{2-k}=
+                \binom{3-k}{\alert{1}}
+                {\left(-1\right)}^{3-k-\alert{1}}=
                 3c_{0}+-6c_{1}+3c_{2}. \\
                 a_{3} & =
-                \sum_{k=0}^{3}
+                \sum_{k=0}^{3-\alert{0}}
                 c_{k}
                 \binom{3}{k}
-                \binom{3-k}{0}
-                {\left(-1\right)}^{3-k}=
+                \binom{3-k}{\alert{0}}
+                {\left(-1\right)}^{3-k-\alert{0}}=
                 -c_{0}+3c_{1}-3c_{2}+c_{3}.
             \end{aligned}
         \end{equation*}
@@ -119,35 +119,50 @@
 \end{frame}
 
 \begin{frame}
-    Así, se obtiene un sistema lineal
-    \begin{equation*}
-        \begin{bmatrix}
-            c_{0} \\
-            c_{1} \\
-            c_{2} \\
-            c_{3}
-        \end{bmatrix}.
-    \end{equation*}
-    Ya que
+    Pero,
     \begin{math}
         \left\{
         1,
         t,
         t^{2},
         t^{3}
-        \right\}
+        \right\}\subset\mathbb{P}_{3}
     \end{math}
-    es una base para los polinomios de grado menor o igual que
-    $3$ se tiene que
+    es un conjunto linealmente independiente.
+    O sea,
     \begin{math}
-        a_{0}=
-        a_{1}=
-        a_{2}=
-        a_{3}=
-        0
+        \sum\limits_{k=0}^{3}
+        a_{k}
+        t^{k}=
+        0\implies
+        \forall k\in\left\{0,\dotsc,3\right\}:
+        a_{k}=0
     \end{math}.
-    Resolviendo el sistema por sustitución progresiva se obtiene
+
+    Así, resolvemos el sistema lineal por sustitución progresiva
+    \begin{equation*}
+        \begin{bmatrix}
+            1  & 0  & 0  & 0 \\
+            -3 & 3  & 0  & 0 \\
+            3  & -6 & 3  & 0 \\
+            -1 & 3  & -3 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            c_{0} \\
+            c_{1} \\
+            c_{2} \\
+            c_{3}
+        \end{bmatrix}=
+        \begin{bmatrix}
+            a_{0} \\
+            a_{1} \\
+            a_{2} \\
+            a_{3}
+        \end{bmatrix}.
+    \end{equation*}
+
     \begin{math}
+        \therefore
         \forall k\in\left\{0,\dotsc,3\right\}:
         c_{k}=0
     \end{math}.
