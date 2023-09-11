@@ -1,5 +1,44 @@
 \begin{frame}
-    \begin{theorem}[Error de interpolación]
+    \begin{theorem}[Error de interpolación de Lagrange]
+        Sean
+        \begin{math}
+            T=
+            {
+            \left\{
+            t_{i}
+            \right\}
+            }^{n}_{i=0}\subset
+            \left[a,b\right]
+        \end{math}
+        un conjunto nodal y
+        \begin{math}
+            f\in C^{\left(n+1\right)}
+            \left(\left[a,b\right]\right)
+        \end{math}
+        y
+        \begin{math}
+            p\in\mathbb{P_{n}}
+        \end{math}
+        es el polinomio de interpolación de Lagrange de $f$
+        subordinado a $T$.
+        Entonces,
+        \begin{math}
+            \forall t\in\left[a,b\right]\setminus T:
+            \exists\xi\in\left(a,b\right)
+        \end{math}
+        con
+        \begin{math}
+            \min\left\{t_{0},\dotsc,t_{n},t\right\}
+            \xi
+            \max\left\{t_{0},\dotsc,t_{n},t\right\}
+        \end{math}
+        tal que
+        \begin{math}
+            f\left(t\right)-
+            p\left(t\right)=
+            \dfrac{f}{\left(n+1\right)!}\omega_{n+1}\left(t\right)
+        \end{math}
+
         Sean $n\in\mathbb{N}$ e
         \begin{math}
             I=
@@ -23,4 +62,8 @@
     \begin{proof}
         .
     \end{proof}
+\end{frame}
+
+\begin{frame}
+    Sea $D\subset\mathbb{C}$ un conjunto simplemente conexo.
 \end{frame}

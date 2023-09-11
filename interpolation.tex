@@ -1,61 +1,112 @@
 \begin{frame}
-	\frametitle{Polinomio de interpolación}
+	\frametitle{Interpolación polinomial}
 
-	Sean $n+1$ puntos distintos
-	\begin{math}
-		{
-			\left\{
-			\left(x_{k},y_{k}\right)
-			\right\}
-		}_{k=0}^{n}\subset
-		\left[a,b\right]\times\mathbb{R}
-	\end{math}
-	y
-	\begin{math}
-		f\colon\left[a,b\right]\to
-		\mathbb{R}
-	\end{math}
-	una función de modo que
-	\begin{math}
-		y_{k}=
-		f\left(x_{k}\right)
-	\end{math}
-	para $0\leq k\leq n$.
-
-	\begin{definition}[Polinomio de interpolación en la forma de Lagrange]
-		\begin{equation*}
-			\Pi_{n}
-			f\left(x\right)\coloneqq
-			% y_{0}
-			% \ell_{0}\left(x\right)+
-			% y_{1}
-			% \ell_{1}\left(x\right)+
-			% \cdots+
-			% y_{n}
-			% \ell_{n}\left(x\right)=
-			\sum\limits_{k=0}^{n}
-			y_{k}
-			\ell_{k}\left(x\right)\in\mathbb{P}_{n},
-		\end{equation*}
-		donde
+	\begin{definition}[Conjunto nodal]
+		Sea
 		\begin{math}
-			\ell_{k}
-			\left(x\right)\coloneqq
-			\prod\limits_{\substack{j=0\\j\neq k}}^{n}
-			\dfrac{x-x_{j}}{x_{k}-x_{j}}
-		\end{math}
-		para $0\leq k\leq n$ son los \alert{polinomios característicos}
-		que satisface
-		\begin{math}
-			\ell_{k}
-			\left(x_{j}\right)=
-			\delta_{kj}
+			\left[a,b\right]\subset
+			\mathbb{R}
 		\end{math}.
-
-		La evaluación de $\Pi_{n}f\left(x\right)$ requiere
-		$O\left(n^{2}\right)$ sumas y productos, en general el algoritmo
-		es \emph{numéricamente inestable}.
+		$T$ es un \alert{conjunto nodal} de tamaño
+		$n+1\in\mathbb{N}$ en $\left[a,b\right]$ sii
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}\subset
+			\left[a,b\right]
+		\end{math}
+		es un conjunto de elementos distintos.
+		Los elementos de $T$, $t_{i}$ son llamados \alert{nodos}.
 	\end{definition}
+
+	\begin{definition}[Polinomio interpolante]
+		Sean
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}\subset
+			\left[a,b\right]
+		\end{math}
+		un conjunto nodal y
+		\begin{math}
+			f\colon
+			\left[a,b\right]\to
+			\mathbb{R}
+		\end{math}
+		una función.
+		La función $I\colon\left[a,b\right]\to\mathbb{R}$ es llamada un
+		\alert{interpolante de} $f$ subordinado a $T$ sii
+		\begin{math}
+			\forall i\in\left\{0,\dotsc,n\right\}:
+			I\left(t_{i}\right)=f\left(t_{i}\right)
+		\end{math}.
+		En este caso, escribimos
+		\begin{math}
+			I\left(T\right)=
+			f\left(T\right)
+		\end{math}.
+	\end{definition}
+
+	\begin{definition}[Polinomio de interpolación]
+		Sea
+		\begin{math}
+			X=
+			{
+			\left\{
+			x_{i}
+			\right\}
+			}^{n}_{i=0}\subset
+			\mathbb{R}
+		\end{math}
+		un conjunto de puntos no necesariamente distintos.
+		Defina el conjunto de pares ordenados
+		\begin{equation*}
+			O\coloneqq
+			\left\{
+			\left(x_{i},y_{i}\right)\mid
+			t_{i}\in T,
+			x_{i}\in X,
+			\forall i\in\left\{0,\dotsc,n\right\}
+			\right\}
+		\end{equation*}
+		$I$ es un interpolante de $O$ sii
+		\begin{math}
+			\forall i\in\left\{0,\dotsc,n\right\}:
+			I\left(t_{i}\right)=
+			f\left(t_{i}\right)
+		\end{math},
+		es decir, $I\left(T\right)=X$.
+		Si el interpolante $I$ es un polinomio, este es llamado un
+		\alert{polinomio de interpolación}.
+	\end{definition}
+
+	% Sean $n+1$ puntos distintos
+	% \begin{math}
+	% 	{
+	% 		\left\{
+	% 		\left(x_{k},y_{k}\right)
+	% 		\right\}
+	% 	}_{k=0}^{n}\subset
+	% 	\left[a,b\right]\times\mathbb{R}
+	% \end{math}
+	% y
+	% \begin{math}
+	% 	f\colon\left[a,b\right]\to
+	% 	\mathbb{R}
+	% \end{math}
+	% una función de modo que
+	% \begin{math}
+	% 	y_{k}=
+	% 	f\left(x_{k}\right)
+	% \end{math}
+	% para $0\leq k\leq n$.
+
 	% Here $\ell_{0},\ell_{1},\ldots,\ell_{n}$ are polynomials that
 	% depend on the nodes $x_0, x_1, \ldots, x_n$ but not on the
 	% ordinates $y_{0},y_{1},\ldots,y_{n}$.
@@ -111,13 +162,218 @@
 	% 	{\left(x_{0}-x_{j}\right)}^{-1}
 	% \end{math}.
 
+	\begin{definition}[Matriz de Vandermonde]
+		Sea
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}
+		\end{math}
+		un conjunto nodal.
+		La \alert{matriz de Vandermonde} subordinada al conjunto
+		nodal $T$, denotada por
+		\begin{math}
+			V_{n}=
+			\left[v_{ij}\right]\in
+			\mathbb{R}^{\left(n+1\right)\times\left(n+1\right)}
+		\end{math}
+		es la matriz con entradas
+		\begin{math}
+			\forall\left\{i,j\right\}\subset
+			\left\{1,\dotsc,n+1\right\}:
+			v_{ij}=
+			t^{j-1}_{i-1}
+		\end{math},
+		es decir,
+		\begin{equation*}
+			V_{n}=
+			\begin{bmatrix}
+				1      & t_{0} & \cdots & t_{0}^{n} \\
+				\vdots & t_{1} & \ddots & \vdots    \\
+				1      & t_{n} & \cdots & t_{n}^{n}
+			\end{bmatrix}.
+		\end{equation*}
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}[Operador de interpolación]
+		Sea
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}
+		\end{math}
+		un conjunto nodal.
+		El \alert{operador de interpolación} subordinado a $T$ es
+		\begin{math}
+			\mathcal{I}_{T}:
+			C\left(\left[a,b\right]\right)\to
+			\mathbb{P}_{n}
+		\end{math}
+		donde
+		\begin{math}
+			\mathcal{I}_{T}
+			\left[f\right]
+		\end{math}
+		es el único polinomio de interpolación
+		que satisface
+		\begin{math}
+			\mathcal{I}_{T}
+			\left[f\right]
+			\left(T\right)=
+			f\left(T\right)
+		\end{math}.
+	\end{definition}
+
+	\begin{theorem}[Operador de proyección lineal]
+		Sea
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}
+			\subset\left[a,b\right]
+		\end{math}
+		un conjunto nodal e
+		\begin{math}
+			\mathcal{I}_{T}:
+			C\left(\left[a,b\right]\right)\to
+			\mathbb{P}_{n}
+		\end{math}
+		es el operador de interpolación subordinado a $T$.
+		\begin{math}
+			\mathcal{I}_{T}
+		\end{math}
+		es un \alert{operador de proyección lineal} sii
+		\begin{equation*}
+			\forall f,g\in C\left(\left[a,b\right]\right):
+			\forall\alpha\in\mathbb{R}:
+			\mathcal{I}_{T}\left[\alpha f+g\right]=
+			\alpha\mathcal{I}_{T}\left[f\right]+
+			\mathcal{I}_{T}\left[g\right],\qquad
+			\forall p\in\mathbb{P}_{n}:
+			\mathcal{I}_{T}\left[p\right]=
+			p.
+		\end{equation*}
+	\end{theorem}
+
+	\begin{definition}[Constante de Lebesgue]
+		Sea
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}
+			\subset\left[a,b\right]
+		\end{math}
+		un conjunto nodal e
+		\begin{math}
+			\mathcal{I}_{T}:
+			C\left(\left[a,b\right]\right)\to
+			\mathbb{P}_{n}
+		\end{math}
+		es el operador de interpolación subordinado a $T$.
+		La \alert{constante de Lebesgue subordinada a} $T$,
+		$\Lambda\left(T\right)$, es la norma del operador
+		$\mathcal{I}_{T}$, es
+		decir,
+		\begin{math}
+			\Lambda\left(T\right)=
+			{\left\|
+			\mathcal{I}_{T}
+			\right\|}_{\infty}
+		\end{math},
+		donde
+		\begin{equation*}
+			{\left\|
+				\mathcal{I}_{T}
+				\right\|}_{\infty}=
+			\sup_{f\neq0}
+			\dfrac{
+				{\left\|
+						\mathcal{I}_{T}
+						\left[f\right]
+						\right\|}_{\infty}
+			}{
+				{\left\|f\right\|}_{\infty}
+			}=
+			\sup_{
+				{\left\|f\right\|}_{\infty}=1}
+			\left\|
+			\mathcal{I}_{T}
+			\left[f\right]
+			\right\|_{\infty}.
+		\end{equation*}
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}[Polinomio de interpolación en la forma de Lagrange]
+		Sea
+		\begin{math}
+			T=
+			{
+			\left\{
+			t_{i}
+			\right\}
+			}^{n}_{i=0}
+			\subset\left[a,b\right]
+		\end{math}
+		un conjunto nodal.
+		El \alert{polinomio de interpolación de Lagrange} de la función $f$,
+		subordinada al conjunto nodal $T$, es el polinomio
+		\begin{equation*}
+			\Pi_{n}
+			f\left(t\right)\coloneqq
+			% y_{0}
+			% \ell_{0}\left(x\right)+
+			% y_{1}
+			% \ell_{1}\left(x\right)+
+			% \cdots+
+			% y_{n}
+			% \ell_{n}\left(x\right)=
+			\sum\limits_{k=0}^{n}
+			x_{k}
+			\ell_{k}\left(t\right)\in\mathbb{P}_{n},
+		\end{equation*}
+		donde
+		\begin{math}
+			\ell_{k}
+			\left(t\right)\coloneqq
+			\prod\limits_{\substack{j=0\\j\neq k}}^{n}
+			\dfrac{t-t_{j}}{t_{k}-t_{j}}
+		\end{math}
+		para $0\leq k\leq n$ son las \alert{bases nodales de Lagrange}
+		que satisface
+		\begin{math}
+			\ell_{k}
+			\left(t_{j}\right)=
+			\delta_{kj}
+		\end{math}.
+
+		La evaluación de $\Pi_{n}f\left(t\right)$ requiere
+		$O\left(n^{2}\right)$ sumas y productos, en general el
+		algoritmo es \emph{numéricamente inestable}.
+	\end{definition}
+
 	\begin{definition}[Polinomio de interpolación en la forma de Newton]
 		\begin{equation*}
 			\Pi_{n}
-			f\left(x\right)\coloneqq
+			f\left(t\right)\coloneqq
 			\sum\limits_{k=0}^{n}
 			a_{k}
-			\omega_{k}\left(x\right)\in\mathbb{P}_{n},
+			\omega_{k}\left(t\right)\in\mathbb{P}_{n},
 		\end{equation*}
 		donde
 		\begin{itemize}
@@ -125,7 +381,7 @@
 
 			      \begin{math}
 				      a_{k}\coloneqq
-				      f\left[x_{0},\ldots,x_{k}\right]
+				      f\left[t_{0},\ldots,t_{k}\right]
 			      \end{math}
 			      es la \alert{$k$-ésima diferencia dividida de Newton}, y
 
@@ -133,15 +389,15 @@
 
 			      \begin{math}
 				      \omega_{k}
-				      \left(x\right)\coloneqq
+				      \left(t\right)\coloneqq
 				      \prod\limits_{j=0}^{k-1}
 				      \left(
-				      x-x_{j}
+				      t-t_{j}
 				      \right)
 			      \end{math}
 			      es el \alert{polinomio nodal de grado $k$}.
 		\end{itemize}
-		La evaluación de $\Pi_{n}f\left(x\right)$ requiere
+		La evaluación de $\Pi_{n}f\left(t\right)$ requiere
 		$O\left(n\right)$.
 	\end{definition}
 \end{frame}
