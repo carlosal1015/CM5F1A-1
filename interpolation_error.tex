@@ -17,7 +17,7 @@
         \end{math}
         y
         \begin{math}
-            p\in\mathbb{P_{n}}
+            p\in\mathbb{P}_{n}
         \end{math}
         es el polinomio de interpolación de Lagrange de $f$
         subordinado a $T$.
@@ -29,36 +29,77 @@
         con
         \begin{math}
             \min\left\{t_{0},\dotsc,t_{n},t\right\}
+            <
             \xi
+            <
             \max\left\{t_{0},\dotsc,t_{n},t\right\}
         \end{math}
         tal que
         \begin{math}
             f\left(t\right)-
             p\left(t\right)=
-            \dfrac{f}{\left(n+1\right)!}\omega_{n+1}\left(t\right)
-        \end{math}
-
-        Sean $n\in\mathbb{N}$ e
-        \begin{math}
-            I=
-            \left[a,b\right]\subset
-            \mathbb{R}
-        \end{math}.
-        Si $f\in C^{\left(n+1\right)}\left(I\right)$ y
-        $p\in\mathbb{P}_{n}$ interpola a $f$, entonces
-        \begin{equation*}
-            f\left(x\right)-
-            p\left(x\right)=
             \dfrac{
-                f^{\left(n+1\right)}
-                \left(\xi\right)
+                f^{\left(n+1\right)}\left(\xi\right)
             }{
-                \left(n+1\right)!}
-            \omega\left(x\right).
-        \end{equation*}
+                \left(n+1\right)!
+            }
+            \omega_{n+1}\left(t\right)
+        \end{math}.
     \end{theorem}
-
+    % Sean $n\in\mathbb{N}$ e
+    % \begin{math}
+    %     I=
+    %     \left[a,b\right]\subset
+    %     \mathbb{R}
+    % \end{math}.
+    % Si $f\in C^{\left(n+1\right)}\left(I\right)$ y
+    % $p\in\mathbb{P}_{n}$ interpola a $f$, entonces
+    % \begin{equation*}
+    %     f\left(x\right)-
+    %     p\left(x\right)=
+    %     \dfrac{
+    %         f^{\left(n+1\right)}
+    %         \left(\xi\right)
+    %     }{
+    %         \left(n+1\right)!}
+    %     \omega\left(x\right).
+    % \end{equation*}
+    \begin{theorem}[Convergencia condicional]
+        Sean $n\in\mathbb{N}$, $\left[a,b\right]\subset\mathbb{R}$,
+        $h=\dfrac{b-a}{n}$, y
+        \begin{math}
+            T=
+            {
+            \left\{
+            t_{i}
+            \right\}
+            }^{n}_{i=0}\subset
+            \left[a,b\right]
+        \end{math}
+        el conjunto nodal uniformemente espaciado
+        \begin{equation*}
+            \forall i\in\left\{0,\dotsc,n\right\}:
+            t_{i}=a+ih.
+        \end{equation*}
+        Sea $f\in C^{\infty}\left(\left[a,b\right]\right)$ y
+        $p_{n}\in\mathbb{P}_{n}$ el polinomio de interpolación de
+        Lagrange de $f$ subordinado a $T$.
+        Entonces,
+        \begin{equation*}
+            {\left\|f-p_{n}\right\|}_{\infty}=
+            \max_{x\in\left[a,b\right]}
+            \left|
+            f\left(t\right)-
+            p_{n}\left(t\right)
+            \right|\xrightarrow{n\to\infty}0,
+        \end{equation*}
+        siempre que
+        \begin{math}
+            \lim\limits_{n\to\infty}
+            \dfrac{F_{n+1}\Omega_{n+1}}{\left(n+1\right)!}=
+            0
+        \end{math}.
+    \end{theorem}
     \begin{proof}
         .
     \end{proof}
